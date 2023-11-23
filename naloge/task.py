@@ -31,7 +31,7 @@ class Task:
         def hsh(s):
             return str(sum(ord(c)*17**i for i,c in enumerate(s)))[-3:]
         def url(viewname):
-            return f"{str(hsh(viewname))}_{viewname}"
+            return f"{hsh(viewname)}_{viewname}"
         return [
                 path(url(self.info_viewname), self.info_view, name=self.info_viewname),
                 path(url(self.task_viewname), self.task_view, name=self.task_viewname),
