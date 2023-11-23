@@ -1,77 +1,52 @@
 # Create your views here.
 
 from django.http import HttpResponse
+from django.shortcuts import render
+
+from . import task
 
 def index(request):
-	return HttpResponse("Dobrodošli na Od srca do srca!")
+    # TODO: tle pride neka logika ki te vrze na selection skupine ce se nisi
+    # zbral skupine, ce si pa ze zbral skupino ti da pa na voljo slike za
+    # orientacijo. Slike bi blo fino da so nekak oznacene tiste na kirih si ze
+    # bil, oz. da se sploh ne pokazejo
+    return HttpResponse("Dobrodošli na Od srca do srca!")
 
-def nnz_epipen(request):
-	return HttpResponse("Naloga Epipen za kategorijo Nič ne znam")
+    return HttpResponse("Naloga Epipen za kategorijo Nič ne znam")
+    return HttpResponse("Naloga Opekline za kategorijo Nič ne znam")
+    return HttpResponse("Naloga Oživljanje za kategorijo Nič ne znam")
+    return HttpResponse("Naloga Zadušitve za kategorijo Nič ne znam")
+    return HttpResponse("Naloga Zlomi in zvini - imobilizacija za kategorijo Nič ne znam")
+    return render(request, "naloge/nnz_klic.html", {'task_name': 'nnz_klic_task'})
+    return HttpResponse("nnz_klic_task")
+    return HttpResponse("Naloga Krvavitve za kategorijo Nič ne znam")
+    return HttpResponse("Naloga Nezavest za kategorijo Nič ne znam")
+    return HttpResponse("Naloga Ozebline za kategorijo Nič ne znam")
+    return HttpResponse("Naloga Pristop, pregled, komunikacija, splošne stvari obveščanje in klic na 112 za kategorijo Obvladam")
+    return HttpResponse("Naloga Zapora dihalne poti za kategorijo Obvladam")
+    return HttpResponse("Naloga Poškodbe zaradi mraza za kategorijo Obvladam")
+    return HttpResponse("Naloga Imobilizacija za kategorijo Obvladam")
+    return HttpResponse("Naloga Rane in krvavitve za kategorijo Obvladam")
+    return HttpResponse("Naloga Alergije za kategorijo Obvladam")
+    return HttpResponse("Naloga Zastrupitve za kategorijo Obvladam")
+    return HttpResponse("Naloga Stanja za kategorijo Obvladam")
 
-def nnz_opekline(request):
-	return HttpResponse("Naloga Opekline za kategorijo Nič ne znam")
-
-def nnz_ozivljanje(request):
-	return HttpResponse("Naloga Oživljanje za kategorijo Nič ne znam")
-
-def nnz_zadusitve(request):
-	return HttpResponse("Naloga Zadušitve za kategorijo Nič ne znam")
-
-def nnz_imobilizacija(request):
-	return HttpResponse("Naloga Zlomi in zvini - imobilizacija za kategorijo Nič ne znam")
-
-def nnz_klic(request):
-	return HttpResponse("Naloga Klic na 112 za kategorijo Nič ne znam")
-
-def nnz_krvavitve(request):
-	return HttpResponse("Naloga Krvavitve za kategorijo Nič ne znam")
-
-def nnz_nezavest(request):
-	return HttpResponse("Naloga Nezavest za kategorijo Nič ne znam")
-
-def nnz_ozebline(request):
-	return HttpResponse("Naloga Ozebline za kategorijo Nič ne znam")
-
-def obv_splosno(request):
-	return HttpResponse("Naloga Pristop, pregled, komunikacija, splošne stvari obveščanje in klic na 112 za kategorijo Obvladam")
-
-def obv_zapora(request):
-	return HttpResponse("Naloga Zapora dihalne poti za kategorijo Obvladam")
-
-def obv_mraz(request):
-	return HttpResponse("Naloga Poškodbe zaradi mraza za kategorijo Obvladam")
-
-def obv_imobilizacija(request):
-	return HttpResponse("Naloga Imobilizacija za kategorijo Obvladam")
-
-def obv_krvavitve(request):
-	return HttpResponse("Naloga Rane in krvavitve za kategorijo Obvladam")
-
-def obv_alergije(request):
-	return HttpResponse("Naloga Alergije za kategorijo Obvladam")
-
-def obv_zastrupitve(request):
-	return HttpResponse("Naloga Zastrupitve za kategorijo Obvladam")
-
-def obv_stanja(request):
-	return HttpResponse("Naloga Stanja za kategorijo Obvladam")
-
-task_list = [
-	nnz_epipen,
-	nnz_opekline,
-	nnz_ozivljanje,
-	nnz_zadusitve,
-	nnz_imobilizacija,
-	nnz_klic,
-	nnz_krvavitve,
-	nnz_nezavest,
-	nnz_ozebline,
-	obv_splosno,
-	obv_zapora,
-	obv_mraz,
-	obv_imobilizacija,
-	obv_krvavitve,
-	obv_alergije,
-	obv_zastrupitve,
-	obv_stanja,
-]
+task_list = [task.Task(t) for t in [
+    "nnz_epipen",
+    "nnz_opekline",
+    "nnz_ozivljanje",
+    "nnz_zadusitve",
+    "nnz_imobilizacija",
+    "nnz_klic",
+    "nnz_krvavitve",
+    "nnz_nezavest",
+    "nnz_ozebline",
+    "obv_splosno",
+    "obv_zapora",
+    "obv_mraz",
+    "obv_imobilizacija",
+    "obv_krvavitve",
+    "obv_alergije",
+    "obv_zastrupitve",
+    "obv_stanja",
+]]

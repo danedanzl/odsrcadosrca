@@ -1,0 +1,12 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block body %}
+	<div style="min-height: 60px"></div>
+	<main class="container">
+		<img src="{% static 'img/logo.png' %}" class="logo">
+		<article>
+			{% block content %}{% endblock %}
+			<button onclick="window.location.href='{% url 'index' %}';">Na nalogo</button>
+		</article>
+    </main>
+{% endblock %}
