@@ -12,41 +12,22 @@ def index(request):
     # bil, oz. da se sploh ne pokazejo
     return HttpResponse("Dobrodošli na Od srca do srca!")
 
-    return HttpResponse("Naloga Epipen za kategorijo Nič ne znam")
-    return HttpResponse("Naloga Opekline za kategorijo Nič ne znam")
-    return HttpResponse("Naloga Oživljanje za kategorijo Nič ne znam")
-    return HttpResponse("Naloga Zadušitve za kategorijo Nič ne znam")
-    return HttpResponse("Naloga Zlomi in zvini - imobilizacija za kategorijo Nič ne znam")
-    return render(request, "naloge/nnz_klic.html", {'task_name': 'nnz_klic_task'})
-    return HttpResponse("nnz_klic_task")
-    return HttpResponse("Naloga Krvavitve za kategorijo Nič ne znam")
-    return HttpResponse("Naloga Nezavest za kategorijo Nič ne znam")
-    return HttpResponse("Naloga Ozebline za kategorijo Nič ne znam")
-    return HttpResponse("Naloga Pristop, pregled, komunikacija, splošne stvari obveščanje in klic na 112 za kategorijo Obvladam")
-    return HttpResponse("Naloga Zapora dihalne poti za kategorijo Obvladam")
-    return HttpResponse("Naloga Poškodbe zaradi mraza za kategorijo Obvladam")
-    return HttpResponse("Naloga Imobilizacija za kategorijo Obvladam")
-    return HttpResponse("Naloga Rane in krvavitve za kategorijo Obvladam")
-    return HttpResponse("Naloga Alergije za kategorijo Obvladam")
-    return HttpResponse("Naloga Zastrupitve za kategorijo Obvladam")
-    return HttpResponse("Naloga Stanja za kategorijo Obvladam")
-
-task_list = [task.Task(t) for t in [
-    "nnz_epipen",
-    "nnz_opekline",
-    "nnz_ozivljanje",
-    "nnz_zadusitve",
-    "nnz_imobilizacija",
-    "nnz_klic",
-    "nnz_krvavitve",
-    "nnz_nezavest",
-    "nnz_ozebline",
-    "obv_splosno",
-    "obv_zapora",
-    "obv_mraz",
-    "obv_imobilizacija",
-    "obv_krvavitve",
-    "obv_alergije",
-    "obv_zastrupitve",
-    "obv_stanja",
+task_list = [task.Task(*t) for t in [
+    ("nnz_epipen", "Epipen"),
+    ("nnz_opekline", "Opekline"),
+    ("nnz_ozivljanje", "Oživljanje"),
+    ("nnz_zadusitve", "Zadušitve"),
+    ("nnz_imobilizacija", "Zlomi"),
+    ("nnz_klic", "Klic na 112"),
+    ("nnz_krvavitve", "Krvavitve"),
+    ("nnz_nezavest", "Nezavest"),
+    ("nnz_ozebline", "Ozebline"),
+    ("obv_splosno", "Pristop, pregled, klic na 112"),
+    ("obv_zapora", "Zapora dihalne poti"),
+    ("obv_mraz", "Poškodbe zaradi mraza"),
+    ("obv_imobilizacija", "Imobilizacija"),
+    ("obv_krvavitve", "Rane in krvavitve"),
+    ("obv_alergije", "Alergije"),
+    ("obv_zastrupitve", "Zastrupitve"),
+    ("obv_stanja", "Stanja"),
 ]]

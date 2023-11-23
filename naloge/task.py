@@ -4,8 +4,9 @@ from django.urls import path, reverse
 from django.shortcuts import render
 
 class Task:
-    def __init__(self, name):
+    def __init__(self, name, display_name):
         self.name = name
+        self.display_name = display_name
         self.task_view = lambda r: render(r, "naloge/task_tmplt.html")
 
         def view(request):
