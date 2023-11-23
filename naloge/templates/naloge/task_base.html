@@ -6,7 +6,7 @@
 		<img src="{% static 'img/logo.png' %}" class="logo">
 		<article>
 			{% block content %}{% endblock %}
-			<button onclick="window.location.href='{% url 'index' %}';">Na nalogo</button>
+			<button onclick="window.location.href='{% url task.sol_viewname %}';">Preveri rešitev</button>
 		</article>
     </main>
 {% endblock %}

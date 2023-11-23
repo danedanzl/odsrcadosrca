@@ -7,11 +7,13 @@ class Task:
     def __init__(self, name, display_name):
         self.name = name
         self.display_name = display_name
-        self.task_view = lambda r: render(r, "naloge/task_tmplt.html")
-
-        def view(request):
+        self.task_view = lambda r: render(r, "naloge/task_tmplt.html", { 'task': self })
+        def sol_view(r):
+            raise NotImplementedError("TODO")
+        self.sol_view = sol_view
+        def info_view(request):
             return render(request, self.template(self.info_viewname), { 'task': self })
-        self.info_view = view
+        self.info_view = info_view
 
     @staticmethod
     def template(viewname):
@@ -35,5 +37,5 @@ class Task:
         return [
                 path(url(self.info_viewname), self.info_view, name=self.info_viewname),
                 path(url(self.task_viewname), self.task_view, name=self.task_viewname),
-                # TODO: solution view
+                path(url(self.sol_viewname), self.sol_view, name=self.sol_viewname),
         ]
