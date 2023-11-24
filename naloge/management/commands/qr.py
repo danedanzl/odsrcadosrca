@@ -11,6 +11,8 @@ from naloge.views import task_list
 # XXX: should be in settings.py or something
 ROOT_URL = "https://odsrcadosrca.rodsivegavolka.si"
 
+KTJI = [3066, 3019, 8893, 6415, 8759, 8404, 5647, 9384, 1430, 2777, 2047]
+
 class Command(BaseCommand):
     help = "Generate QR code images in current dir"
 
@@ -28,8 +30,8 @@ class Command(BaseCommand):
 
 
     def handle(self, *args, **options):
-        for t in task_list:
-            url = ROOT_URL + reverse(t.info_viewname)
+        for t in KTJI:
+            url = f"{ROOT_URL}/{t}"
             qr = segno.make_qr(url)
             qr.save(f"qr/qr.svg", scale=6, border=1)
             self.run("montage", # zlimaj skupi srcka in QR kodo
@@ -59,12 +61,13 @@ class Command(BaseCommand):
                      "-gravity", "center",
                      "qr/out2.png")
             self.run("magick", # dodaj padding in rob da je jasno kje je konce paddinga
-                     "out2.png",
+                     "qr/out2.png",
                      "-bordercolor", "white",
-                     "-border", "100x100",
+                     "-border", "120x100",
                      "-bordercolor", "teal",
                      "-border", "3x3",
-                     f"qr/{t.name}.png")
+                     f"qr/{t}.png")
+            os.remove("qr/qr.svg")
             os.remove("qr/label.png")
             os.remove("qr/label2.png")
             os.remove("qr/out.png")
