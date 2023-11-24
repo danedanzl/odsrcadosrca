@@ -1,0 +1,12 @@
+{% extends 'naloge/sol_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>Klic na 112</h3>
+		{% if correct %}
+		<p>Pravilno!</p>
+		{% else %}
+		<p>Narobe! Klic je bil primeren in pravilen le v drugem primeru</p>
+		{% endif %}
+	</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'naloge/task_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>Klic na 112</h3>
+		<p>Poslušaj zvočne posnetke klicev na 112 in označi, kateri so bili
+		izvedeni upravičeno in pravilno. </p>
+		<form method="post">
+			{% csrf_token %}
+			<ul>
+				<li>
+					{{ form.opts1 }}
+					<audio controls>
+						<source src={% static 'audio/1.opus' %}>
+					</audio>
+				</li>
+				<li>
+					{{ form.opts2 }}
+					<audio controls>
+						<source src={% static 'audio/2.opus' %}>
+					</audio>
+				</li>
+				<li>
+					{{ form.opts3 }}
+					<audio controls>
+						<source src={% static 'audio/3.opus' %}>
+					</audio>
+				</li>
+			</ul>
+			<input type="submit" value="Preveri rešitev">
+		</form>
+	</div>
+{% endblock %}

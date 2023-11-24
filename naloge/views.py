@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from . import task
+from . import forms
 
 def index(request):
     # TODO: tle pride neka logika ki te vrze na selection skupine ce se nisi
@@ -9,22 +10,22 @@ def index(request):
     # bil, oz. da se sploh ne pokazejo
     return HttpResponse("Dobrodošli na Od srca do srca!")
 
-task_list = [task.Task(*t) for t in [
-    ("nnz_epipen", "Epipen"),
-    ("nnz_opekline", "Opekline"),
-    ("nnz_ozivljanje", "Oživljanje"),
-    ("nnz_zadusitve", "Zadušitve"),
-    ("nnz_imobilizacija", "Zlomi"),
-    ("nnz_klic", "Klic na 112"),
-    ("nnz_krvavitve", "Krvavitve"),
-    ("nnz_nezavest", "Nezavest"),
-    ("nnz_ozebline", "Ozebline"),
-    ("obv_splosno", "Pristop, pregled, klic na 112"),
-    ("obv_zapora", "Zapora dihalne poti"),
-    ("obv_mraz", "Poškodbe zaradi mraza"),
-    ("obv_imobilizacija", "Imobilizacija"),
-    ("obv_krvavitve", "Rane in krvavitve"),
-    ("obv_alergije", "Alergije"),
-    ("obv_zastrupitve", "Zastrupitve"),
-    ("obv_stanja", "Stanja"),
-]]
+task_list = [
+    task.Task("nnz_epipen", "Epipen"),
+    task.Task("nnz_opekline", "Opekline"),
+    task.Task("nnz_ozivljanje", "Oživljanje"),
+    task.Task("nnz_zadusitve", "Zadušitve"),
+    task.Task("nnz_imobilizacija", "Zlomi"),
+    task.Task("nnz_klic", "Klic na 112", forms.NNZKlic),
+    task.Task("nnz_krvavitve", "Krvavitve"),
+    task.Task("nnz_nezavest", "Nezavest"),
+    task.Task("nnz_ozebline", "Ozebline"),
+    task.Task("obv_splosno", "Pristop, pregled, klic na 112"),
+    task.Task("obv_zapora", "Zapora dihalne poti"),
+    task.Task("obv_mraz", "Poškodbe zaradi mraza"),
+    task.Task("obv_imobilizacija", "Imobilizacija"),
+    task.Task("obv_krvavitve", "Rane in krvavitve"),
+    task.Task("obv_alergije", "Alergije"),
+    task.Task("obv_zastrupitve", "Zastrupitve"),
+    task.Task("obv_stanja", "Stanja"),
+]

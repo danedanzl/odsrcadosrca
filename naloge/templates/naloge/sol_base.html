@@ -6,9 +6,10 @@
 		<img src="{% static 'img/logo.png' %}" class="logo">
 		<article>
 			{% block content %}{% endblock %}
+			<a href="{% url 'index' %}" role="button">Na index</a>
 		</article>
     </main>
 {% endblock %}
 {% block title %}
-{{task.display_name}} - Naloga - Od srca do srca
+{{task.display_name}} - Rešitev - Od srca do srca
 {% endblock %}

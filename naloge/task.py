@@ -1,17 +1,32 @@
+from django import forms
 from django.urls import path, reverse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 class Task:
-    def __init__(self, name, display_name):
+    def __init__(self, name, display_name, form=None):
         self.name = name
         self.display_name = display_name
-        self.task_view = lambda r: render(r, "naloge/task_tmplt.html", { 'task': self })
-        def sol_view(r):
-            raise NotImplementedError("TODO")
-        self.sol_view = sol_view
-        def info_view(request):
-            return render(request, self.template(self.info_viewname), { 'task': self })
-        self.info_view = info_view
+        if form is None:
+            def f(r):
+                raise NotImplementedError("TODO")
+            self.task_view = f
+        else:
+            self.form = form
+
+    def info_view(self, request):
+        return render(request, self.template(self.info_viewname), { 'task': self })
+
+    def task_view(self, request):
+        if request.method == 'POST':
+            form = self.form(request.POST)
+            if form.is_valid():
+                return render(request, self.template(self.sol_viewname),
+                                { 'correct': form.correct() })
+        else:
+            form = self.form()
+
+        return render(request, self.template(self.task_viewname),
+                      { 'task': self, 'form': form })
 
     @staticmethod
     def template(viewname):
@@ -35,5 +50,4 @@ class Task:
         return [
                 path(url(self.info_viewname), self.info_view, name=self.info_viewname),
                 path(url(self.task_viewname), self.task_view, name=self.task_viewname),
-                path(url(self.sol_viewname), self.sol_view, name=self.sol_viewname),
         ]
