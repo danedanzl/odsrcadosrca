@@ -1,0 +1,37 @@
+{% extends 'naloge/infotext_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>Poškodbe zaradi vročine</h3>
+		<h5>Opekline</h5>
+		<p><b>Prva pomoč</b></p>
+		<ol>
+			<li>Varnost: odstraniš vir toplote. Pozor: opečenca nikoli ne gasiš z gasilnim aparatom!</li>
+			<li>Oblačila odstraniš le, če NISO prilepljena.</li>
+			<li>Opeklino <b>hladiš s hladno tekočo vodo</b>, dokler žgoči občutek ne poneha. Če je opečen otrok ali večji del telesa odraslega, paziš, da človeka pri tem ne podhladiš!</li>
+			<li><b>Oskrba opeklinske rane</b>:
+			  <ul>
+			    <li>Odstraniš nakit. Opeklino pokriješ z opeklinsko mrežico in gazo. Če opeklinske mrežice nimaš, lahko uporabiš tudi mokro sterilno gazo ali alu-plast (s srebrno stranjo na opeklino, da se ne prilepi). Opečenega obraza ne obvezuješ.</li>
+			    <li>V primeru opekline dihalnih poti daš opečenemu na vrat hladen obkladek.</li>
+		    </ul>
+		  </li>
+			<li>Poskrbiš za prevoz k zdravniku.</li>
+		</ol>
+		<p>POZOR: Opečenca praviloma hudo žeja. Kadar je prevoz do bolnišnice kratek, ne sme opečenec zaužiti nobenih tekočin. Kadar je prevoz dolgotrajen, daš opečencu piti večkrat po malem limonado ali hladen sladek čaj, v katera dodaj sol. Taka tekočina blaži opeklinski šok.</p>
+		<img src="{% static 'img/images/opekline1.png' %}">
+		<h5>Sončarica</h5>
+		<p>Značilni znaki in simptomi se pojavijo po daljšem izpostavljanju soncu brez ustrezne zaščite: </p>
+		<ul>
+			<li>glavobol, omotica in vrtoglavica,</li>
+			<li>slabost in bruhanje, </li>
+			<li>visoka telesna temperatura.</li>
+		</ul>
+		<p><b>Prva pomoč</b></p>
+		<ol>
+			<li>Bolnika takoj poležiš v senco, še bolje v hladen prostor.</li>
+			<li>Na glavo ali celo telo daš mrzle obkladke.</li>
+			<li>Če je pri zavesti, bolniku po žličkah daješ hladno pijačo: limonado, čaj (ne alkohola in kave).</li>
+			<li>Čimprej poskrbiš za prevoz k zdravniku.</li>
+		</ol>
+	</div>
+{% endblock %}
