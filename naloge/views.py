@@ -4,16 +4,6 @@ from . import task
 from . import forms
 from common import kt
 
-def index(request):
-    # TODO: tle pride neka logika ki te vrze na selection skupine ce se nisi
-    # zbral skupine, ce si pa ze zbral skupino ti da pa na voljo slike za
-    # orientacijo. Slike bi blo fino da so nekak oznacene tiste na kirih si ze
-    # bil, oz. da se sploh ne pokazejo
-    return HttpResponse("Dobrodošli na Od srca do srca!")
-
-task_list = [
-]
-
 ktji = [
         kt.KT(3066, 4064,
               (task.Task("obv_alergije", "Alergije"),

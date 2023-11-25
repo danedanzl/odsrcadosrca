@@ -12,3 +12,6 @@ class KT:
             self.tip = "Tvoja mami"
         if location is None:
             self.location = "Brokopondo"
+
+    def __lt__(self, other):
+        return self.urlid < other.urlid

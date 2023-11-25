@@ -10,20 +10,39 @@
 				<div class="grid">
 				{% for kt0,kt1 in kts %}
 					<div class="row">
-						<div class="column"> <a href="{{kt0.url}}"><img width=120 height=160 src="{% static kt0.imgurl %}"></a></div>
-						<div class="column"> <a href="{{kt1.url}}"><img width=120 height=160 src="{% static kt1.imgurl %}"></a></div>
+						<div class="column">
+							<a href="{{kt0.url}}">
+								{% if not kt0.done %}
+									<img width=120 height=160 src="{% static kt0.imgurl %}">
+								{% else %}
+									<img style="opacity:0.3;" width=120 height=160 src="{% static kt0.imgurl %}">
+								{% endif %}
+							</a>
+						</div>
+						<div class="column">
+							<a href="{{kt1.url}}">
+								{% if not kt1.done %}
+									<img width=120 height=160 src="{% static kt1.imgurl %}">
+								{% else %}
+									<img style="opacity:0.3;" width=120 height=160 src="{% static kt1.imgurl %}">
+								{% endif %}
+							</a>
+						</div>
 					</div>
 				{% endfor %}
-				{% if obv0 %}
-					<div class="row">
-						<div class="column"> <a href="{{obv0.url}}"><img width=120 height=160 src="{% static obv0.imgurl %}"></a></div>
-						<div class="column"> <a href="{{obv1.url}}"><img width=120 height=160 src="{% static obv1.imgurl %}"></a></div>
-					</div>
-				{% endif %}
 				</div>
 				<div class="grid">
 					<div class="row">
-					<div class="column"> <a href="{{last.url}}"><img width=120 height=160 src="{% static last.imgurl %}"></a></div>
+						<div class="column">
+							<a href="{{last.url}}">
+								{% if not last.done %}
+									<img width=120 height=160 src="{% static last.imgurl %}">
+								{% else %}
+									<img style="opacity:0.3;" width=120 height=160 src="{% static last.imgurl %}">
+								{% endif %}
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</article>

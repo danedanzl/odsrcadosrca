@@ -56,7 +56,12 @@
 				<p>Pot po progi lahko začnete na katerikoli točki
 				(vrstni red ni pomemben) in jo lahko opravite tudi v več dneh; edina
 				časovna omejitev je trajanje dogodka.</p>
-				<a role=button href="list">Začni</a>
+				{% if is_started %}
+					<a role=button href="{% url "ktlist" %}">Seznam točk</a>
+					<a role=button href="{% url "group_selection" %}">Menjava skupine</a>
+				{% else %}
+					<a role=button href="{% url "ktlist" %}">Začni</a>
+				{% endif %}
 			</div>
 		</article>
 </main>

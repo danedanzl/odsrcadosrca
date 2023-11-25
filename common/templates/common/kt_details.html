@@ -3,12 +3,13 @@
 {% block body %}
 	<div style="min-height: 60px"></div>
 	<main class="container">
-		<img src="{% static 'img/logo.png' %}" class="logo">
+		<a href="/"><img src="{% static 'img/logo_small.png' %}" class="logo-small"></a>
 		<article>
 			<script> x=0; </script>
 			<div>
 				<div> <img src="{% static imgurl %}"></div>
 				<p></p>
+				{% if done %} <p> <b>To točko si že obiskal</b> </p> {% endif %}
 				<p id="tip"></p>
 				<p id="location"></p>
 			</div>

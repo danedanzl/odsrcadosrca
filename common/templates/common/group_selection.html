@@ -1,0 +1,16 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block body %}
+	<div style="min-height: 60px"></div>
+	<main class="container">
+		<img src="{% static 'img/logo_small.png' %}" class="logo-small">
+		<article>
+			TODO text
+			<button onclick="window.location.href='{% url 'nnz' %}';">Lažja skupina</button>
+			<button onclick="window.location.href='{% url 'obv' %}';">Težja skupina</button>
+		</article>
+    </main>
+{% endblock %}
+{% block title %}
+Podrobnosti točke - Od srca do srca
+{% endblock %}
