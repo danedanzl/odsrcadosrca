@@ -47,10 +47,10 @@ if MchoiceTask.objects.filter(display_name="Zvini in zlomi - imobilizacija",
         MA(vpr=vpr2, ans="Roko mu daš v ruto pestovalko, čeprav ga po njegovih besedah “boli ko svinja”.", prav=False)
         MA(vpr=vpr2, ans="Komolec hladiš in ga poviješ tako, da ga ne more premikati.", prav=True)
 
-        MA(vpr=vpr3, ans="Gleženj si je zvil. Mora si ga naravnati nazaj in oteklina bo splahnela.", odg="", prav=False)
-        MA(vpr=vpr3, ans="V gleženj ga je pičila/ugriznila neka žival. Gleženj naj hladi in izjoka vso bolečino.", odg="", prav=False)
-        MA(vpr=vpr3, ans="Gleženj si je zvil. Čimbolj naj ga razgibava, kljub bolečini, saj se bo tako najhitreje spravil v normalno stanje.", odg="", prav=False)
-        MA(vpr=vpr3, ans="Gleženj si je zvil. Nanj naj si da obkladek in ga povije tako, da se ne bo premikal. Izogiba naj se hoji.", odg="", prav=True)
+        MA(vpr=vpr3, ans="Gleženj si je zvil. Mora si ga naravnati nazaj in oteklina bo splahnela.", prav=False)
+        MA(vpr=vpr3, ans="V gleženj ga je pičila/ugriznila neka žival. Gleženj naj hladi in izjoka vso bolečino.", prav=False)
+        MA(vpr=vpr3, ans="Gleženj si je zvil. Čimbolj naj ga razgibava, kljub bolečini, saj se bo tako najhitreje spravil v normalno stanje.", prav=False)
+        MA(vpr=vpr3, ans="Gleženj si je zvil. Nanj naj si da obkladek in ga povije tako, da se ne bo premikal. Izogiba naj se hoji.", prav=True)
 
 if MchoiceTask.objects.filter(display_name="Rane in krvavitve",
                               name="krvavitve", max_points=0,
