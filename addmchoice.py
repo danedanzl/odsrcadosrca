@@ -113,27 +113,60 @@ if MchoiceTask.objects.filter(display_name="Zastrupitve",
         nal = MchoiceTask.objects.create(display_name="Zastrupitve",
                                          name="zastrupitve", max_points=0,
                                          category="obv")
-    vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Bruhanje lahko pri sumu zastrupitve izzovemo:")
-    MchoiceAnswer.objects.create(vpr=vpr, ans="Kadarkoli.", prav=False)
-    MchoiceAnswer.objects.create(vpr=vpr, ans="Čim prej po zaužitju strupene snovi.", prav=False)
-    MchoiceAnswer.objects.create(vpr=vpr, ans="Le po posvetu z zdravnikom.", prav=True)
+        vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Bruhanje lahko pri sumu zastrupitve izzovemo:")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Kadarkoli.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Čim prej po zaužitju strupene snovi.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Le po posvetu z zdravnikom.", prav=True)
 
-    vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Najpogostejše vrste zastrupitev so povezane:")
-    MchoiceAnswer.objects.create(vpr=vpr, ans="Z jemanjem prepovedanih substanc.", prav=True)
-    MchoiceAnswer.objects.create(vpr=vpr, ans="Z nekaterimi slabo označenimi gospodinjskimi pripomočki.", prav=False)
-    MchoiceAnswer.objects.create(vpr=vpr, ans="Z visoko količino ogljikovega monoksida v zaprtih prostorih.", prav=False)
+        vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Najpogostejše vrste zastrupitev so povezane:")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Z jemanjem prepovedanih substanc.", prav=True)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Z nekaterimi slabo označenimi gospodinjskimi pripomočki.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Z visoko količino ogljikovega monoksida v zaprtih prostorih.", prav=False)
 
-    vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Kaj moramo narediti, če sumimo, da je nekdo zastrupljen?")
-    MchoiceAnswer.objects.create(vpr=vpr, ans="Takoj kličemo 112.", prav=True)
-    MchoiceAnswer.objects.create(vpr=vpr, ans="Klic na 112 pokličemo le, če smo prepričani, da je zastrupitev lahko smrtna.", prav=False)
-    MchoiceAnswer.objects.create(vpr=vpr, ans="Kličemo, ko se pokažejo prvi simptomi zastrupitve.", prav=False)
+        vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Kaj moramo narediti, če sumimo, da je nekdo zastrupljen?")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Takoj kličemo 112.", prav=True)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Klic na 112 pokličemo le, če smo prepričani, da je zastrupitev lahko smrtna.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Kličemo, ko se pokažejo prvi simptomi zastrupitve.", prav=False)
 
-    vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Kateri od navedenih ukrepov ob zastrupitvi ni pravilen?")
-    MchoiceAnswer.objects.create(vpr=vpr, ans="Spravimo na varno.", prav=False)
-    MchoiceAnswer.objects.create(vpr=vpr, ans="Primeru izgube zavesti ga položimo v položaj za nezavestnega.", prav=False)
-    MchoiceAnswer.objects.create(vpr=vpr, ans="Primeru, da je zastrupljeni pri zavesti, lahko po manjših požirkih pije navadno vodo, da razredči strup.", prav=True)
+        vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Kateri od navedenih ukrepov ob zastrupitvi ni pravilen?")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Spravimo na varno.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Primeru izgube zavesti ga položimo v položaj za nezavestnega.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Primeru, da je zastrupljeni pri zavesti, lahko po manjših požirkih pije navadno vodo, da razredči strup.", prav=True)
 
-    vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Kateri od naštetih simptomov ni pogost simptom zastrupitve preko očesa?")
-    MchoiceAnswer.objects.create(vpr=vpr, ans="Rdeče in razdražene oči.", prav=False)
-    MchoiceAnswer.objects.create(vpr=vpr, ans="Otekanje območja okoli oči.", prav=True)
-    MchoiceAnswer.objects.create(vpr=vpr, ans="Poškodbe oči in bolečina.", prav=False)
+        vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Kateri od naštetih simptomov ni pogost simptom zastrupitve preko očesa?")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Rdeče in razdražene oči.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Otekanje območja okoli oči.", prav=True)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Poškodbe oči in bolečina.", prav=False)
+
+if MchoiceTask.objects.filter(display_name="Stanja",
+                              name="stanja", max_points=0,
+                              category="obv").count() == 0:
+    print(f"creating obv: Stanja")
+    with transaction.atomic():
+        nal = MchoiceTask.objects.create(display_name="Stanja", name="stanja",
+                                   max_points=0, category="obv")
+
+        vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Kako pogosto lahko pri srčni kapi pod jezik poškropimo nitrolingual?")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Na 5 minut.", prav=True)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Na 10 minut.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Samo 1-krat.", prav=False)
+
+        vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Katero zdravilo lahko damo posamezniku, kadar sumimo možgansko kap?")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Aspirin.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Lekadol.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Nobenega.", prav=True)
+
+        vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Po koliko časa kličemo strokovno pomoč pri epileptičnem napadu?")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Takoj.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Po 2-3 minutah.", prav=True)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Po 5 ali več minutah.", prav=False)
+
+        vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Kaj lahko damo osebi v hipoglikemičnem stanju, ki je pri zavesti?")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Hrano, ki vsebuje veliko ogljikovih hidratov.", prav=True)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Hrano, ki vsebuje veliko proteinov.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Hrano, ki vsebuje veliko vlaknin.", prav=False)
+
+        vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Pri astmatičnem napadu naj bolnik zdravilo v pljučih:")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Izdihnihne takoj.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Počasi izdihne skozi nos.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Zadrži nekaj časa.", prav=True)

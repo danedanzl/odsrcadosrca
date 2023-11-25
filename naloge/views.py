@@ -42,7 +42,7 @@ ktji = [
               (get_mchoicetask(category="obv", name="zastrupitve"),
                None)),
         kt.KT(2047, 5706,
-              (task.Task("obv_stanja", "Stanja"),
+              (get_mchoicetask(category="obv", name="stanja"),
                None)),
 ]
 
