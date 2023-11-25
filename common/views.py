@@ -9,6 +9,8 @@ from django.core.exceptions import SuspiciousOperation
 from naloge.views import task_map
 from naloge.task import Task
 
+from . import forms
+
 class Group(Enum):
     OBV = 0
     NNZ = 1
@@ -103,3 +105,13 @@ def img(request, group, done, imgid):
             return render(request, "common/kt_details.html", { 'kt': kt, 'imgurl': url, 'done': done[i] })
     else:
         raise Http404
+
+def register(request):
+    if request.method == 'POST':
+        form = forms.Register(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data['email'], '|',form.cleaned_data['group'], '|',
+                  form.cleaned_data['starost'])
+        return redirect("ktlist") # TODO: handle invalid and set cookies
+    form = forms.Register()
+    return render(request, "common/start.html", { 'form' : form })
