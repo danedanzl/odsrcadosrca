@@ -26,3 +26,22 @@ body, html {
 	padding: 0 4px 4px;
 	margin: 0 auto;
 }
+
+
+/*	sol html */
+
+.uradno, .pravilno, .narobe, .odgbox {
+	padding-left: 10px;
+}
+
+.pravilno {
+	color: #0a0;
+}
+
+.narobe {
+	color: #f44;
+}
+
+.poudarjeno {
+	text-decoration: underline;
+}
