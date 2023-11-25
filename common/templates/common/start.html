@@ -5,17 +5,21 @@
 	<main class="container">
 		<a href="/"><img src="{% static 'img/logo_small.png' %}" class="logo-small"></a>
 		<article>
-			TODO text
+			<p>Spodnja polja niso obvezna za udeležbo na akciji, a nam bodo
+			pomagala pri vrednotenju uspešnosti akcije, zato bomo veseli, če
+			jih izpolnite. E-poštne naslove bomo uporabili, da vam po koncu
+			akcije pošljemo vprašalnik o zadovoljstvu, in za obveščanje o
+			morebitnih podobnih akcijah v prihodnosti.</p>
 			<form method="post">
 				{% csrf_token %}
-				<p>{{form.email.label_tag}}: {{form.email}}</p>
-				<p>{{form.group.label_tag}}: {{form.group}}</p>
-				<p>{{form.startost.label_tag}}: {{form.starost}}</p>
+				<p>{{form.email.label_tag}} {{form.email}}</p>
+				<p>{{form.group.label_tag}} {{form.group}}</p>
+				<p>{{form.starost.label_tag}} {{form.starost}}</p>
 				<input type="submit" value="Shrani">
 			</form>
 		</article>
     </main>
 {% endblock %}
 {% block title %}
-Podrobnosti točke - Od srca do srca
+Začetek - Od srca do srca
 {% endblock %}
