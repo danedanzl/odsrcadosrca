@@ -10,13 +10,18 @@
 		<p>{{ q.vpr }}</p>
 		{% with tip=result|dict_lookup:q.id|dict_lookup:"tip" uradni=result|dict_lookup:q.id|dict_lookup:"uradni" %}
 			{% if tip == 'tvojpravilni' %}
-				<p>Bravo, na vprašanje si izbral pravilni odgovor: <span class="pravilno">{{ uradni }}</span></p>
+				<div class="poudarjeno">Bravo, na vprašanje si izbral pravilni odgovor: </div>
+				<div class="pravilno">{{ uradni }}</div>
 			{% elif tip == 'uradnitvoj' %}
-				<p>Pravilni odgovor je: {{ uradni }}</p>
-				<p>Ti pa si odgovoril z: <span class="narobe">{{ result|dict_lookup:q.id|dict_lookup:"tvoj" }}</span></p>
+				<div class="poudarjeno">Pravilni odgovor je:</div>
+				<div>{{ uradni }}</div>
+				<div class="poudarjeno">Ti pa si odgovoril z: </div>
+				<div class="narobe">{{ result|dict_lookup:q.id|dict_lookup:"tvoj" }}</div>
 			{% else %}
-				<p>Pravilni odgovor je: {{ uradni }}</p>
+				<div class="poudarjeno">Pravilni odgovor je:</div>
+				<div>{{ uradni }}</div>
 			{% endif %}
+			<br/>
 		{% endwith %}
 	{% endfor %}
 {% endblock content %}
