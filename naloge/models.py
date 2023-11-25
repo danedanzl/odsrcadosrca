@@ -47,13 +47,14 @@ class MchoiceTask(Task):
                             result[q.id]['tvoj'] = q.answers.get(id=form.cleaned_data[q.vpr]).ans
                     else:
                         result[q.id]['tip'] = 'pravilni'
-                return render(request, self.template(self.sol_viewname),
+                return render(request, self.template(self.sol_templname),
                               { 'result': result, 'task': self })
         else:
             form = self.form()()
 
-        return render(request, self.template(self.task_viewname),
-                      { 'task': self, 'form': form })
+        return render(request, self.template(self.task_templname),
+                      { 'task': self, 'form': form, 'inv':
+                       f"naloge:{self.fullname}_task" })
 
     @staticmethod
     def template(viewname):
@@ -62,6 +63,12 @@ class MchoiceTask(Task):
     @property
     def info_viewname(self):
         return f"{self.fullname}_text"
+    @property
+    def task_templname(self):
+        return f"mchoice_task"
+    @property
+    def sol_templname(self):
+        return f"mchoice_sol"
     @property
     def task_viewname(self):
         return f"{self.fullname}_task"

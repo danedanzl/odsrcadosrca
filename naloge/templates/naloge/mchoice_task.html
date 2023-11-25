@@ -1,11 +1,9 @@
 {% extends 'naloge/task_base.html' %}
 {% load static %}
 
-{% block title %}{{ block.super }} | Imobilizacija{% endblock title %}
-
 {% block content %}
 	<h1>{{ task.display_name }}</h1>
-	<form action="{% url 'naloge:nnz_imobilizacija_task' %}" method="post">
+	<form action="{% url inv %}" method="post">
 		{% csrf_token %}
 		{{ form.as_div }}
 		<input type="submit" value="preveri" name="Preveri"/>

@@ -2,8 +2,6 @@
 {% load static %}
 {% load dict_lookup %}
 
-{% block title %}{{ block.super }} | Imobilizacija{% endblock title %}
-
 {% block content %}
 	<h1>{{ task.display_name }}</h1>
 	{% for q in task.questions.all %}

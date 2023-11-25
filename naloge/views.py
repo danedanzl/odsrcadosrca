@@ -6,6 +6,10 @@ from common import kt
 
 from naloge.models import MchoiceTask
 
+def get_mchoicetask(category, name):
+    return MchoiceTask.objects.get(category=category, name=name)
+    return None
+
 ktji = [
         kt.KT(3066, 4064,
               (task.Task("obv_alergije", "Alergije"),
@@ -21,9 +25,9 @@ ktji = [
                task.Task("nnz_ozebline", "Ozebline"))),
         kt.KT(8759, 9918,
               (task.Task("obv_imobilizacija", "Imobilizacija"),
-               MchoiceTask.objects.get(category="nnz", name="imobilizacija"))),
+               get_mchoicetask(category="nnz", name="imobilizacija"))),
         kt.KT(8404, 4747,
-              (task.Task("obv_krvavitve", "Rane in krvavitve"),
+              (get_mchoicetask(category="obv", name="krvavitve"),
                task.Task("nnz_krvavitve", "Krvavitve"))),
         kt.KT(5647, 9156,
               (task.Task("obv_opekline", "Opekline"),
@@ -35,7 +39,7 @@ ktji = [
               (task.Task("obv_tpo", "Temeljni postopki oživljanja"),
                task.Task("nnz_ozivljanje", "Oživljanje"))),
         kt.KT(2777, 2654,
-              (task.Task("obv_zastrupitve", "Zastrupitve"),
+              (get_mchoicetask(category="obv", name="zastrupitve"),
                None)),
         kt.KT(2047, 5706,
               (task.Task("obv_stanja", "Stanja"),
