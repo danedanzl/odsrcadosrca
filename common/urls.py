@@ -10,4 +10,5 @@ urlpatterns = [
     path("group", views.group_selection, name="group_selection"),
     path("nnz", views.pick_nnz, name="nnz"),
     path("obv", views.pick_obv, name="obv"),
+    path("reset", views.cookie_reset, name="reset"),
 ]

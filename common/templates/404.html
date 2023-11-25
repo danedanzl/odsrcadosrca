@@ -1,0 +1,16 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block body %}
+	<div style="min-height: 60px"></div>
+	<main class="container">
+		<a href="/"><img src="{% static 'img/logo_small.png' %}" class="logo-small"></a>
+		<article>
+			<h2>Napaka!</h2>
+			<p>Prišlo je do napake - stran ne obstaja.</p>
+			<a role=button href="/">Nazaj na glavno stran</a>
+		</article>
+    </main>
+{% endblock %}
+{% block title %}
+Podrobnosti točke - Od srca do srca
+{% endblock %}

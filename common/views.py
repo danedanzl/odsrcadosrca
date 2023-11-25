@@ -3,7 +3,8 @@ import functools
 
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.http import Http404, HttpResponseBadRequest
+from django.http import Http404
+from django.core.exceptions import SuspiciousOperation
 
 from naloge.views import task_map
 from naloge.task import Task
@@ -23,14 +24,14 @@ def validate_cookies(fn):
         elif group == "obv":
             group = Group.OBV
         elif group is not None:
-            return HttpResponseBadRequest()
+            raise SuspiciousOperation
 
         if (done := request.COOKIES.get("done")) is not None:
             if len(done) != 11 or done.count('0') + done.count('1') != 11:
-                return HttpResponseBadRequest()
+                raise SuspiciousOperation
             done = [c == '1' for c in done]
         elif group is not None:
-            return HttpResponseBadRequest()
+            raise SuspiciousOperation
         response = fn(request, group, done, *args, **kwargs)
         if done is not None:
             response.set_cookie("done", "".join(("1" if d else "0" for d in done)))
@@ -55,6 +56,12 @@ def pick_obv(request):
     response = redirect("ktlist")
     response.set_cookie("group", "obv")
     response.set_cookie("done", "0"*11) # TODO move this to registration
+    return response
+
+def cookie_reset(request):
+    response = redirect("index")
+    response.delete_cookie("group")
+    response.delete_cookie("done")
     return response
 
 @validate_cookies
