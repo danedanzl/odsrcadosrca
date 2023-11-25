@@ -8,3 +8,21 @@ body, html {
 .logo {
 	max-height: 190px;
 }
+
+.logo-small {
+	max-height: 80px;
+	 display: block;
+     margin-left: auto;
+}
+
+.column {
+	flex: 50%;
+	padding: 0 4px 4px;
+	margin: 0 auto;
+}
+
+.row {
+	display: flex;
+	padding: 0 4px 4px;
+	margin: 0 auto;
+}

@@ -6,5 +6,7 @@ urlpatterns = [
 	path("", views.index, name="naloge_index"),
 ]
 
-for t in views.task_list:
-    urlpatterns += t.urlpatterns()
+for kt in views.task_map.values():
+    urlpatterns += kt.obv.urlpatterns()
+    if kt.nnz is not None:
+        urlpatterns += kt.nnz.urlpatterns()

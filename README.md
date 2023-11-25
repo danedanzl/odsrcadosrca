@@ -25,3 +25,8 @@ Izobrazevalne tekste v html rihta Klemen, ostalo dvoje mormo pa mi. Stran z
 resitvijo bi blo fino ce bi vsebovala kksn kratk povzetek zakaj je kej prov al
 pa ne, ampak tega nimamo zares prpravlenga vsebinsko tko da je treba neki si
 zmislt.
+
+## Grafično/vizualni TODOji
+Treba je vsem razen glavne strani popravit da bo logo\_small.png na vrhu
+Treba je poskrbet da bodo stvari mele taprav title.
+Treba je narest verzije slikic ki so oznacene kot ze obiskane.

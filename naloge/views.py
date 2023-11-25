@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 from . import task
 from . import forms
+from common import kt
 
 def index(request):
     # TODO: tle pride neka logika ki te vrze na selection skupine ce se nisi
@@ -11,38 +12,42 @@ def index(request):
     return HttpResponse("Dobrodošli na Od srca do srca!")
 
 task_list = [
-    task.Task("nnz_epipen", "Epipen"),
-    task.Task("nnz_opekline", "Opekline"),
-    task.Task("nnz_ozivljanje", "Oživljanje"),
-    task.Task("nnz_zadusitve", "Zadušitve"),
-    task.Task("nnz_imobilizacija", "Zlomi"),
-    task.Task("nnz_klic", "Klic na 112", forms.NNZKlic),
-    task.Task("nnz_krvavitve", "Krvavitve"),
-    task.Task("nnz_nezavest", "Nezavest"),
-    task.Task("nnz_ozebline", "Ozebline"),
-    task.Task("obv_splosno", "Pristop, pregled, klic na 112"),
-    task.Task("obv_tpo", "Temeljni postopki oživljanja"),
-    task.Task("obv_zapora", "Zapora dihalne poti"),
-    task.Task("obv_polozaji", "Položaji"),
-    task.Task("obv_krvavitve", "Rane in krvavitve"),
-    task.Task("obv_opekline", "Opekline"),
-    task.Task("obv_mraz", "Poškodbe zaradi mraza"),
-    task.Task("obv_alergije", "Alergije"),
-    task.Task("obv_imobilizacija", "Imobilizacija"),
-    task.Task("obv_zastrupitve", "Zastrupitve"),
-    task.Task("obv_stanja", "Stanja"),
 ]
 
-task_map = {
-        3066 : ('obv_alergije', 'nnz_epipen'),
-        3019 : ('obv_splosno', 'nnz_klic'),
-        8893 : ('obv_zapora', 'nnz_zadusitve'),
-        6415 : ('obv_mraz', 'nnz_ozebline'),
-        8759 : ('obv_imobilizacija', 'nnz_imobilizacija'),
-        8404 : ('obv_krvavitve', 'nnz_krvavitve'),
-        5647 : ('obv_opekline', 'nnz_opekline'),
-        9384 : ('obv_polozaji', 'nnz_nezavest'),
-        1430 : ('obv_tpo', 'nnz_ozivljanje'),
-        2777 : ('obv_zastrupitve', None),
-        2047 : ('obv_stanja', None),
-}
+ktji = [
+        kt.KT(3066, 4064,
+              (task.Task("obv_alergije", "Alergije"),
+               task.Task("nnz_epipen", "Epipen"))),
+        kt.KT(3019, 4620,
+              (task.Task("obv_splosno", "Pristop, pregled, klic na 112"),
+               task.Task("nnz_klic", "Klic na 112", forms.NNZKlic))),
+        kt.KT(8893, 3616,
+              (task.Task("obv_zapora", "Zapora dihalne poti"),
+               task.Task("nnz_zadusitve", "Zadušitve"))),
+        kt.KT(6415, 6859,
+              (task.Task("obv_mraz", "Poškodbe zaradi mraza"),
+               task.Task("nnz_ozebline", "Ozebline"))),
+        kt.KT(8759, 9918,
+              (task.Task("obv_imobilizacija", "Imobilizacija"),
+               task.Task("nnz_imobilizacija", "Zlomi"))),
+        kt.KT(8404, 4747,
+              (task.Task("obv_krvavitve", "Rane in krvavitve"),
+               task.Task("nnz_krvavitve", "Krvavitve"))),
+        kt.KT(5647, 9156,
+              (task.Task("obv_opekline", "Opekline"),
+               task.Task("nnz_opekline", "Opekline"))),
+        kt.KT(9384, 3296,
+              (task.Task("obv_polozaji", "Položaji"),
+               task.Task("nnz_nezavest", "Nezavest"))),
+        kt.KT(1430, 7966,
+              (task.Task("obv_tpo", "Temeljni postopki oživljanja"),
+               task.Task("nnz_ozivljanje", "Oživljanje"))),
+        kt.KT(2777, 2654,
+              (task.Task("obv_zastrupitve", "Zastrupitve"),
+               None)),
+        kt.KT(2047, 5706,
+              (task.Task("obv_stanja", "Stanja"),
+               None)),
+]
+
+task_map = {kt.urlid : kt for kt in ktji}
