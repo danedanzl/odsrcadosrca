@@ -32,7 +32,8 @@ def validate_cookies(fn):
         elif group is not None:
             return HttpResponseBadRequest()
         response = fn(request, group, done, *args, **kwargs)
-        response.set_cookie("done", "".join(("1" if d else "0" for d in done)))
+        if done is not None:
+            response.set_cookie("done", "".join(("1" if d else "0" for d in done)))
         return response
     return wrapper
 
