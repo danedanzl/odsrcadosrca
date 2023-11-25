@@ -64,7 +64,7 @@ def ktlist(request, group, done):
     ktji = []
     for i,kt in enumerate(sorted(list(task_map.values()))):
         if group == Group.NNZ and kt.nnz is None:
-            o = obv
+            continue
         ktji.append({
             'url' : reverse("img", kwargs={ 'imgid': kt.imgid }),
             'imgurl': f"img/nav/{kt.imgid}.jpg",
