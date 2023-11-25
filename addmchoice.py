@@ -170,3 +170,108 @@ if MchoiceTask.objects.filter(display_name="Stanja",
         MchoiceAnswer.objects.create(vpr=vpr, ans="Izdihnihne takoj.", prav=False)
         MchoiceAnswer.objects.create(vpr=vpr, ans="Počasi izdihne skozi nos.", prav=False)
         MchoiceAnswer.objects.create(vpr=vpr, ans="Zadrži nekaj časa.", prav=True)
+
+if MchoiceTask.objects.filter(display_name="Stanja",
+                              name="stanja", max_points=0,
+                              category="obv").count() == 0:
+    print(f"creating obv: Stanja")
+    with transaction.atomic():
+        nal = MchoiceTask.objects.create(display_name="Stanja", name="stanja",
+                                   max_points=0, category="obv")
+
+        vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Kako pogosto lahko pri srčni kapi pod jezik poškropimo nitrolingual?")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Na 5 minut.", prav=True)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Na 10 minut.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Samo 1-krat.", prav=False)
+
+        vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Katero zdravilo lahko damo posamezniku, kadar sumimo možgansko kap?")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Aspirin.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Lekadol.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Nobenega.", prav=True)
+
+        vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Po koliko časa kličemo strokovno pomoč pri epileptičnem napadu?")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Takoj.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Po 2-3 minutah.", prav=True)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Po 5 ali več minutah.", prav=False)
+
+        vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Kaj lahko damo osebi v hipoglikemičnem stanju, ki je pri zavesti?")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Hrano, ki vsebuje veliko ogljikovih hidratov.", prav=True)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Hrano, ki vsebuje veliko proteinov.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Hrano, ki vsebuje veliko vlaknin.", prav=False)
+
+        vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Pri astmatičnem napadu naj bolnik zdravilo v pljučih:")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Izdihnihne takoj.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Počasi izdihne skozi nos.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Zadrži nekaj časa.", prav=True)
+
+if MchoiceTask.objects.filter(display_name="Epipen", name="epipen",
+                              max_points=0, category="nnz").count() == 0:
+    print(f"creating nnz: Epipen")
+    with transaction.atomic():
+        nal = MchoiceTask.objects.create(display_name="Epipen", name="epipen",
+                                         max_points=0, category="nnz")
+
+        vpr = MchoiceQuestion.objects.create(nal=nal,
+                                             vpr="Epipen moramo uporabiti tudi pri lažjih alergijskih reakcijah, kot so na primer izpuščaji.",
+                                             kom="Uporaba Epipena je potrebna le v primeru anafilaktične reakcije, ko pride tudi do dihalne stiske, motenj zavesti in/ali prebavnih težav.")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Pravilna.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Napačna.", prav=True)
+
+        vpr = MchoiceQuestion.objects.create(nal=nal,vpr="Po uporabi epipena nevarnosti ni več, zato nam ni treba več klicati reševalcev.",
+                                             kom="Nekaj časa po uporabi Epipena se reakcija lahko ponovi, zato je klic na 112 pri anafilaktični reakciji v vsakem primeru nujno potreben.")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Pravilna.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Napačna.", prav=True)
+
+        vpr = MchoiceQuestion.objects.create(nal=nal,vpr="Epipen lahko uporabimo kar skozi hlače (ni potrebna uporaba na golo kožo).",
+                                             kom=" ")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Pravilna.", prav=True)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Napačna.", prav=False)
+
+        vpr = MchoiceQuestion.objects.create(nal=nal,vpr="Pri uporabi epipena je najpomembnejša natančnost vboda.",
+                                             kom="Točna lokacija vboda ni tako pomembna. Z vbodom v zunanjo stran stegna zadenemo veliko in dobro prekrvavljeno mišico, od koder zdravilo hitro pride v kri.")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Pravilna.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Napačna.", prav=True)
+
+        vpr = MchoiceQuestion.objects.create(nal=nal,vpr="Epipen uporabimo, če se pri alergični osebi po stiku z alergenom nenadoma pojavijo prebavne težave.",
+                                             kom=" ")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Pravilna.", prav=True)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Napačna.", prav=False)
+
+        vpr = MchoiceQuestion.objects.create(nal=nal,vpr="Če imaš epipen, ni potrebno odstraniti stvari, na katero je oseba alergična.",
+                                             kom="Odstranitev alergena je vedno nujen ukrep.")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Pravilna.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Napačna.", prav=True)
+
+        vpr = MchoiceQuestion.objects.create(nal=nal,vpr="Pred uporabo je treba odstraniti moder zamašek na epipenu.",
+                                             kom=" ")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Pravilna.", prav=True)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Napačna.", prav=False)
+
+if MchoiceTask.objects.filter(display_name="Temeljni postopki oživaljanja", name="tpo",
+                              max_points=0, category="obv").count() == 0:
+    print(f"creating obv: TPO")
+    with transaction.atomic():
+        nal = MchoiceTask.objects.create(display_name="Temeljni postopki oživaljanja", name="tpo",
+                                         max_points=0, category="obv")
+
+        vpr = MchoiceQuestion.objects.create(nal=nal, vpr="TPO izvajamo pri neodzivnih, ki ne dihajo.", kom=" ")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Pravilna.", prav=True)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Napačna.", prav=False)
+
+        vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Oživljanje otroka začnemo s 5 vpihi.", kom=" ")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Pravilna.", prav=True)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Napačna.", prav=False)
+
+        vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Stise in vpihe izvajamo v razmerju 30:3.", kom="Pravilno razmerje je 30:2")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Pravilna.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Napačna.", prav=True)
+
+        vpr = MchoiceQuestion.objects.create(nal=nal, vpr="Pri izvajanju TPO so vpihi obvezni. Če jih ne želimo izvajati, je bolje, da se tudi stisov ne lotimo.",
+                                             kom="Vpihi so priporočeni, niso pa obvezni. Najbolj ključen del oživljanja so stisi prsnega koša, zato je v primeru, da vpihov ne želimo izvajati, bolje, da se lotimo le stisov.")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Pravilna.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Napačna.", prav=True)
+
+        vpr = MchoiceQuestion.objects.create(nal=nal, vpr="AED lahko uporabljajo le za to usposobljene osebe.",
+                                             kom="AED lahko uporabi kdorkoli. Za uporabo je popolnoma varen, če le sledimo njegovim navodilom.")
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Pravilna.", prav=False)
+        MchoiceAnswer.objects.create(vpr=vpr, ans="Napačna.", prav=True)

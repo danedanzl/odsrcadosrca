@@ -7,7 +7,17 @@
 	{% for q in task.questions.all %}
 		<p>{{ q.vpr }}</p>
 		{% with tip=result|dict_lookup:q.id|dict_lookup:"tip" uradni=result|dict_lookup:q.id|dict_lookup:"uradni" %}
-			{% if tip == 'tvojpravilni' %}
+			{% if q.kom != "" %}
+				<div class="odgbox">
+				{% if tip == 'tvojpravilni' %}
+					Res je, trditev je <span class="pravilno">{% if uradni == "Pravilna." %}pravilna{% else %}napačna{% endif %}</span>! <span>{{ q.kom }}</span>
+				{% elif tip == 'uradnitvoj' %}
+					Ne, trditev je <span class="narobe">{% if uradni == "Pravilna." %}pravilna{% else %}napačna{% endif %}</span>! <span>{{ q.kom }}</span>
+				{% else %}
+					Trditev je <span class="poudarjeno">{% if uradni == "Pravilna." %}pravilna{% else %}napačna{% endif %}</span>! <span>{{ q.kom }}</span>
+				{% endif %}
+				</div>
+			{% elif tip == 'tvojpravilni' %}
 				<div class="odgbox"><span class="poudarjeno">Bravo, na vprašanje si izbral pravilni odgovor: </span>
 					<span class="pravilno">{{ uradni }}</span>
 				</div>

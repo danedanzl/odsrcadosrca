@@ -90,6 +90,8 @@ class MchoiceTask(Task):
 class MchoiceQuestion(models.Model):
     nal = models.ForeignKey("MchoiceTask", on_delete = models.CASCADE, verbose_name = "Naloga vprašanja", related_name="questions")
     vpr = models.CharField(max_length = 500, verbose_name = "vprašanje")
+    kom = models.CharField(max_length = 200,
+                           verbose_name = "komentar po rešenem vprašanju", blank=True)
 
     def __str__(self):
         return f"{self.nal.category} | {self.nal.name}: {self.vpr}"
@@ -100,8 +102,6 @@ class MchoiceQuestion(models.Model):
 class MchoiceAnswer(models.Model):
     vpr = models.ForeignKey("MchoiceQuestion", on_delete = models.CASCADE, verbose_name = "vprašanje", related_name="answers")
     ans = models.CharField(max_length = 200, verbose_name = "odgovor")
-    odg = models.CharField(max_length = 200,
-                           verbose_name = "odgovor, ki ga dobi uporabnik, če izbere ta odgovor", blank=True)
     prav = models.BooleanField(verbose_name = "odgovor je pravilen", default=False)
 
     def __str__(self):

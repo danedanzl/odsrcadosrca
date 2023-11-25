@@ -13,7 +13,7 @@ def get_mchoicetask(category, name):
 ktji = [
         kt.KT(3066, 4064,
               (task.Task("obv_alergije", "Alergije"),
-               task.Task("nnz_epipen", "Epipen"))),
+               get_mchoicetask(category="nnz", name="epipen"))),
         kt.KT(3019, 4620,
               (task.Task("obv_splosno", "Pristop, pregled, klic na 112"),
                task.Task("nnz_klic", "Klic na 112", forms.NNZKlic))),
@@ -36,7 +36,7 @@ ktji = [
               (task.Task("obv_polozaji", "Položaji"),
                task.Task("nnz_nezavest", "Nezavest"))),
         kt.KT(1430, 7966,
-              (task.Task("obv_tpo", "Temeljni postopki oživljanja"),
+              (get_mchoicetask(category="obv", name="tpo"),
                task.Task("nnz_ozivljanje", "Oživljanje"))),
         kt.KT(2777, 2654,
               (get_mchoicetask(category="obv", name="zastrupitve"),
