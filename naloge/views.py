@@ -4,6 +4,8 @@ from . import task
 from . import forms
 from common import kt
 
+from naloge.models import MchoiceTask
+
 ktji = [
         kt.KT(3066, 4064,
               (task.Task("obv_alergije", "Alergije"),
@@ -19,7 +21,7 @@ ktji = [
                task.Task("nnz_ozebline", "Ozebline"))),
         kt.KT(8759, 9918,
               (task.Task("obv_imobilizacija", "Imobilizacija"),
-               task.Task("nnz_imobilizacija", "Zlomi"))),
+               MchoiceTask.objects.get(category="nnz", name="imobilizacija"))),
         kt.KT(8404, 4747,
               (task.Task("obv_krvavitve", "Rane in krvavitve"),
                task.Task("nnz_krvavitve", "Krvavitve"))),
@@ -39,5 +41,8 @@ ktji = [
               (task.Task("obv_stanja", "Stanja"),
                None)),
 ]
+
+from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
 
 task_map = {kt.urlid : kt for kt in ktji}

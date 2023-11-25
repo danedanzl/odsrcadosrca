@@ -1,0 +1,22 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% load dict_lookup %}
+
+{% block title %}{{ block.super }} | Imobilizacija{% endblock title %}
+
+{% block body %}
+	<h1>{{ task.display_name }}</h1>
+	{% for q in task.questions.all %}
+		<p>{{ q.vpr }}</p>
+		{% with tip=result|dict_lookup:q.id|dict_lookup:"tip" uradni=result|dict_lookup:q.id|dict_lookup:"uradni" %}
+			{% if tip == 'tvojpravilni' %}
+				<p>Bravo, na vprašanje si izbral pravilni odgovor: <span class="pravilno">{{ uradni }}</span></p>
+			{% elif tip == 'uradnitvoj' %}
+				<p>Pravilni odgovor je: {{ uradni }}</p>
+				<p>Ti pa si odgovoril z: <span class="narobe">{{ result|dict_lookup:q.id|dict_lookup:"tvoj" }}</span></p>
+			{% else %}
+				<p>Pravilni odgovor je: {{ uradni }}</p>
+			{% endif %}
+		{% endwith %}
+	{% endfor %}
+{% endblock body %}
