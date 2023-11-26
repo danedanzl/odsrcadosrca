@@ -78,7 +78,7 @@ class NNZNezavest(forms.Form):
     opts1 = forms.ChoiceField(choices=CHOICES)
 
     def correct(self):
-        return (self.cleaned_data['opts1'] == '3')
+        return ({'correct': self.cleaned_data['opts1'] == '3'})
 
 
 class NNZKrvavitve(forms.Form):
@@ -102,12 +102,12 @@ class NNZKrvavitve(forms.Form):
     opts6 = forms.ChoiceField(choices=CHOICES)
 
     def correct(self):
-        return (self.cleaned_data['opts1'] == '6'
+        return ({ 'correct': self.cleaned_data['opts1'] == '6'
                 and self.cleaned_data['opts2'] == '3'
                 and self.cleaned_data['opts3'] == '4'
                 and self.cleaned_data['opts4'] == '9'
                 and self.cleaned_data['opts5'] == '1'
-                and self.cleaned_data['opts6'] == '8')
+                and self.cleaned_data['opts6'] == '8'})
 
 
 class OBVOpekline(forms.Form):
@@ -123,7 +123,7 @@ class OBVOpekline(forms.Form):
     opts10 = forms.BooleanField(required=False, initial=False)
 
     def correct(self):
-        return (self.cleaned_data['opts1'] 
+        return ({ 'correct': self.cleaned_data['opts1'] 
                 and not self.cleaned_data['opts2']
                 and not self.cleaned_data['opts3']
                 and not self.cleaned_data['opts4']
@@ -132,6 +132,6 @@ class OBVOpekline(forms.Form):
                 and self.cleaned_data['opts7']
                 and not self.cleaned_data['opts8']
                 and self.cleaned_data['opts9']
-                and self.cleaned_data['opts10'])
+                and self.cleaned_data['opts10']})
 
 
