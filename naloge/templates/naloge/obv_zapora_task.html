@@ -1,0 +1,63 @@
+{% extends 'naloge/task_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>{{task.display_name}}</h3>
+		<p>Pred vami je odločitveno drevo. Sami se lahko odločate kako
+		ravnati v prihajajočih situacijah. Izberite enega izmed dveh
+		odgovorov, da nadaljujete naprej po zgodbi.
+		</p>
+		<script>
+			var q = ["",
+"Sedite v lokalu in oseba sedeča nasproti vas pomotoma vdihne košček piškota ter začne kašljati.",
+"Nič vam ne odgovori in še naprej kašlja z zariplim obrazom.",
+"Naredite Heimlichov prijem. Oseba odreagira tako, da presenečeno poskoči na stolu, nato se vam po kratki pavzi začne smejati, saj ste se tako prestrašili. Vse je bilo v redu, in rahlo osramočeni nadaljujete pogovor.",
+"Ljudje se zgrnejo okoli nje in ne vedo, kako ji pomagati. Okoli nje je velika kričeča gruča in ničesar se ne da narediti.",
+"Še naprej kašlja.",
+"Iz gruče se prerine gospod, ki jo petkrat udari po hrbtu, petkrat naredi Heimlichov prijem in to ponavlja. Oseba končno zadiha in gruča se počasi razide.",
+"Osebi petkrat naredite Heimlichov prijem. Oseba končno zadiha in se vam zahvali. Gruča se počasi razide.",
+];
+
+var g= [[1], [2,3], [4,5],"end", [6,5], [7,6], "end", "end"];
+
+var txt = [ [], ["Vprašate, ali je v redu.", "Skočite pokonci, greste okoli mize in naredite Heimlichov prijem."],
+	["Pokličete na pomoč.", "Skočite pokonci, greste okoli mize in jo petkrat udarite po hrbtu."], [],
+	["Ostanete ob robu in upate, da se bo pokazal nekdo z znanjem.", "Prerinete se skozi gručo in jo petkrat udarite po hrbtu."],
+	["Petkrat naredite Heimlichov prijem.", "Še naprej jo udarjate po hrbtu."], [], []];
+
+			function $(s) {
+				var el = document.getElementById(s);
+				return el;
+			};
+
+			var state = 0;
+			function click(nr) {
+				state = g[state][nr];
+				$("lbl").innerHTML = q[state];
+				if (g[state] === "end") {
+					$("btn4").style.display = "block";
+					$("btn1").style.display = "none";
+					$("btn2").style.display = "none";
+					return;
+				}
+				$("btn1").innerHTML = txt[state][0];
+				if (txt[state].length >= 2) {
+					$("btn2").innerHTML = txt[state][1];
+					$("btn2").style.display = "block";
+				} else {
+					$("btn2").style.display = "none";
+				}
+			};
+</script>
+		<p id=lbl> </p>
+		<button id=btn1></button>
+		<button id=btn2></button>
+		<button id=btn4 class=contrast onclick="window.location.href='{% url 'ktlist' %}';">Izberi naslednjo točko</button>
+		<script>
+			$("btn1").onclick = function(){click(0)};
+			$("btn2").onclick = function(){click(1)};
+			$("btn4").style.display = "none";
+			click(0);
+		</script>
+	 </div>
+{% endblock %}
