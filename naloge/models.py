@@ -90,7 +90,7 @@ class MchoiceTask(Task):
 class MchoiceQuestion(models.Model):
     nal = models.ForeignKey("MchoiceTask", on_delete = models.CASCADE, verbose_name = "Naloga vprašanja", related_name="questions")
     vpr = models.CharField(max_length = 500, verbose_name = "vprašanje")
-    kom = models.CharField(max_length = 200,
+    kom = models.CharField(max_length = 500,
                            verbose_name = "komentar po rešenem vprašanju", blank=True)
 
     def __str__(self):

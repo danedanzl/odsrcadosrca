@@ -17,7 +17,7 @@ ktji = [
               "Pri edinem sidru v Ljubljani",
               "Kongresni trg - po sredinskih stopnicah v garažno hišo pod Kongresnim trgom (poleg glavne blagajne)"),
         kt.KT(3019, 4620,
-              (task.Task("obv_splosno", "Pristop, pregled, klic na 112"),
+              (get_mchoicetask(category="obv", name="splosno"),
                task.Task("nnz_klic", "Klic na 112", forms.NNZKlic)),
              "Zraven je zelo znan Ljubljanski hotel - poimenovan po mogočni živali",
              "Vošnjakova ulica 2"),

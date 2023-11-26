@@ -11,30 +11,24 @@ if MchoiceTask.objects.filter(display_name="Zvini in zlomi - imobilizacija",
     print(f"creating nnz: Zvini in zlomi - imobilizacija")
     with transaction.atomic():
 
-        zvinizlomi = MT(display_name="Zvini in zlomi - imobilizacija",
-                                                name="imobilizacija",
-                                                max_points=0, category="nnz")
+        nal = MT(display_name="Zvini in zlomi - imobilizacija",
+                 name="imobilizacija", max_points=0, category="nnz")
 
 
-        vpr1 = MQ(nal=zvinizlomi, vpr="Očka Peter je "
-                                              "med obiranjem drevesa poleti padel iz "
-                                              "visoke lestve. Kaj moraš najprej "
-                                              "narediti?")
-        vpr2 = MQ(nal=zvinizlomi, vpr="Ko je poskusil "
-                                              "dvigniti pretežke uteži, se je Lukatu "
-                                              "kar naenkrat vdala desna roka in zdaj "
-                                              "ne more več premikati roke v komolcu. "
-                                              "Na srečo so uteži padle mimo njega in "
-                                              "ga niso dodatno poškodovale. Kaj "
-                                              "narediš?")
-        vpr3 = MQ(nal=zvinizlomi, vpr="Na pohodu se "
-                                              "Izak cel dan pritožuje, da se mu ne "
-                                              "da več hoditi in da ga boli gleženj. "
-                                              "Ko zvečer da nogo iz gojzarja, vidi, "
-                                              "da je njegov gleženj otekel in ga "
-                                              "strašansko boli že samo ob dotiku. "
-                                              "Kaj se mu je najverjetneje zgodilo in "
-                                              "kaj naj naredi?")
+        vpr1 = MQ(nal=nal, vpr="Očka Peter je med obiranjem drevesa poleti "
+                               "padel iz visoke lestve. Kaj moraš najprej "
+                               "narediti?")
+        vpr2 = MQ(nal=nal, vpr="Ko je poskusil dvigniti pretežke uteži, se je "
+                               "Lukatu kar naenkrat vdala desna roka in zdaj ne "
+                               "more več premikati roke v komolcu. Na srečo so "
+                               "uteži padle mimo njega in ga niso dodatno "
+                               "poškodovale. Kaj narediš?")
+        vpr3 = MQ(nal=nal, vpr="Na pohodu se Izak cel dan pritožuje, da se mu "
+                               "ne da več hoditi in da ga boli gleženj. Ko "
+                               "zvečer da nogo iz gojzarja, vidi, da je njegov "
+                               "gleženj otekel in ga strašansko boli že samo ob "
+                               "dotiku. Kaj se mu je najverjetneje zgodilo in "
+                               "kaj naj naredi?")
 
 
         MA(vpr=vpr1, ans="Hitro ga premakni v senco, da ne bo dehidriran.", prav=False)
@@ -57,9 +51,8 @@ if MchoiceTask.objects.filter(display_name="Rane in krvavitve",
                               category="obv").count() == 0:
     print(f"creating obv: Rane in krvavitve")
     with transaction.atomic():
-        obvl_krvavitve = MT(display_name="Rane in krvavitve",
-                                                    name="krvavitve",
-                                                    max_points=0, category="obv")
+        obvl_krvavitve = MT(display_name="Rane in krvavitve", name="krvavitve",
+                            max_points=0, category="obv")
 
         vpr = MQ(nal=obvl_krvavitve, vpr="Kaj je notranja krvavitev?")
         MA(vpr=vpr, ans="Kri znotraj žil.", prav=False)
@@ -113,9 +106,8 @@ if MchoiceTask.objects.filter(display_name="Zastrupitve",
                               category="obv").count() == 0:
     print(f"creating obv: Zastrupitve")
     with transaction.atomic():
-        nal = MT(display_name="Zastrupitve",
-                                         name="zastrupitve", max_points=0,
-                                         category="obv")
+        nal = MT(display_name="Zastrupitve", name="zastrupitve", max_points=0,
+                 category="obv")
         vpr = MQ(nal=nal, vpr="Bruhanje lahko pri sumu zastrupitve izzovemo:")
         MA(vpr=vpr, ans="Kadarkoli.", prav=False)
         MA(vpr=vpr, ans="Čim prej po zaužitju strupene snovi.", prav=False)
@@ -146,8 +138,8 @@ if MchoiceTask.objects.filter(display_name="Stanja",
                               category="obv").count() == 0:
     print(f"creating obv: Stanja")
     with transaction.atomic():
-        nal = MT(display_name="Stanja", name="stanja",
-                                   max_points=0, category="obv")
+        nal = MT(display_name="Stanja", name="stanja", max_points=0,
+                 category="obv")
 
         vpr = MQ(nal=nal, vpr="Kako pogosto lahko pri srčni kapi pod jezik poškropimo nitrolingual?")
         MA(vpr=vpr, ans="Na 5 minut.", prav=True)
@@ -179,8 +171,8 @@ if MchoiceTask.objects.filter(display_name="Stanja",
                               category="obv").count() == 0:
     print(f"creating obv: Stanja")
     with transaction.atomic():
-        nal = MT(display_name="Stanja", name="stanja",
-                                   max_points=0, category="obv")
+        nal = MT(display_name="Stanja", name="stanja", max_points=0,
+                 category="obv")
 
         vpr = MQ(nal=nal, vpr="Kako pogosto lahko pri srčni kapi pod jezik poškropimo nitrolingual?")
         MA(vpr=vpr, ans="Na 5 minut.", prav=True)
@@ -211,8 +203,8 @@ if MchoiceTask.objects.filter(display_name="Epipen", name="epipen",
                               max_points=0, category="nnz").count() == 0:
     print(f"creating nnz: Epipen")
     with transaction.atomic():
-        nal = MT(display_name="Epipen", name="epipen",
-                                         max_points=0, category="nnz")
+        nal = MT(display_name="Epipen", name="epipen", max_points=0,
+                 category="nnz")
 
         vpr = MQ(nal=nal,
                                              vpr="Epipen moramo uporabiti tudi pri lažjih alergijskih reakcijah, kot so na primer izpuščaji.",
@@ -255,7 +247,7 @@ if MchoiceTask.objects.filter(display_name="Temeljni postopki oživaljanja", nam
     print(f"creating obv: TPO")
     with transaction.atomic():
         nal = MT(display_name="Temeljni postopki oživaljanja", name="tpo",
-                                         max_points=0, category="obv")
+                 max_points=0, category="obv")
 
         vpr = MQ(nal=nal, vpr="TPO izvajamo pri neodzivnih, ki ne dihajo.", kom=" ")
         MA(vpr=vpr, ans="Pravilna.", prav=True)
@@ -278,3 +270,52 @@ if MchoiceTask.objects.filter(display_name="Temeljni postopki oživaljanja", nam
                                              kom="AED lahko uporabi kdorkoli. Za uporabo je popolnoma varen, če le sledimo njegovim navodilom.")
         MA(vpr=vpr, ans="Pravilna.", prav=False)
         MA(vpr=vpr, ans="Napačna.", prav=True)
+
+if MchoiceTask.objects.filter(display_name="Splošno - pristop, pregled, komunikacije",
+                              name="splosno", max_points=0, category="obv").count() == 0:
+    print(f"creating obv: splosno")
+    with transaction.atomic():
+        nal = MchoiceTask.objects.create(display_name="Splošno - pristop, pregled, komunikacije",
+                                         name="splosno", max_points=0, category="obv")
+
+        vpr = MQ(nal=nal, vpr="Po pristopu k poškodovancu preverimo varnost okolice.", kom="Varnost preverimo PRED pristopom.")
+        MA(vpr=vpr, ans="Pravilna.", prav=False)
+        MA(vpr=vpr, ans="Napačna.", prav=True)
+
+        vpr = MQ(nal=nal, vpr="Ocenimo, da pristop ni varen, pustimo poškodovanca in pobegnemo na varno.",
+                 kom="V primeru, da ni varno, k poškodovancu ne pristopamo. Pokličemo 112 in jih obvestimo o okoliščinah.")
+        MA(vpr=vpr, ans="Pravilna.", prav=False)
+        MA(vpr=vpr, ans="Napačna.", prav=True)
+
+        vpr = MQ(nal=nal, vpr="Najprej ogovorimo. Če se ne odzove, ga primemo za ramena in rahlo stresemo.", kom=" ")
+        MA(vpr=vpr, ans="Pravilna.", prav=True)
+        MA(vpr=vpr, ans="Napačna.", prav=False)
+
+        vpr = MQ(nal=nal, vpr="Primeru suma na poškodbo hrbtenice (prometne nesreče, padci z višine) poškodovanca čim manj premikamo.",
+                                             kom=" ")
+        MA(vpr=vpr, ans="Pravilna.", prav=True)
+        MA(vpr=vpr, ans="Napačna.", prav=False)
+
+        vpr = MQ(nal=nal, vpr="Se poškodovani odzove, verjetno ne potrebuje pomoči.",
+                 kom="Če se poškodovani odzove, z naslednjimi vprašanji poskusimo pridobiti čimveč informacij o poškodovancu: kako se počuti in kaj se je zgodilo, ali ima kakšne alergije, bolezni in zdravila ter kdaj je nazadnje jedel. Ukrepamo v skladu z ugotovitvami.")
+        MA(vpr=vpr, ans="Pravilna.", prav=False)
+        MA(vpr=vpr, ans="Napačna.", prav=True)
+
+        vpr = MQ(nal=nal, vpr="Se poškodovani ne odzove, preverimo dihanje.",
+                 kom="Pred preverjanjem dihanja najprej sprostimo dihalno pot - glavo zvrnemo močno nazaj.")
+        MA(vpr=vpr, ans="Pravilna.", prav=False)
+        MA(vpr=vpr, ans="Napačna.", prav=True)
+
+        vpr = MQ(nal=nal, vpr="Oseba diha normalno, je nezavestna. Namestimo jo v stabilni bočni položaj.", kom=" ")
+        MA(vpr=vpr, ans="Pravilna.", prav=True)
+        MA(vpr=vpr, ans="Napačna.", prav=False)
+
+        vpr = MQ(nal=nal, vpr="Je nezavestni nameščen v stabilen bočni položaj, smo z ukrepanjem zaključili in lahko poškodovanca zapustimo.",
+                 kom="Pokličemo 112 in redno spremljamo, ali nezavestni še diha.")
+        MA(vpr=vpr, ans="Pravilna.", prav=False)
+        MA(vpr=vpr, ans="Napačna.", prav=True)
+
+        vpr = MQ(nal=nal, kom=" ",
+                 vpr="Oseba ne diha ali ne diha normalno (neenakomerno podihava, hrope, smrči), takoj pokličemo 112 in začnemo s temeljnimi postopki oživljanja.")
+        MA(vpr=vpr, ans="Pravilna.", prav=True)
+        MA(vpr=vpr, ans="Napačna.", prav=False)
