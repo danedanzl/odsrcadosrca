@@ -1,0 +1,22 @@
+{% extends 'naloge/task_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>{{task.display_name}}</h3>
+		<form method=post>
+			{% csrf_token %}
+			<div>
+				<div class="poudarjeno">Označite simptome, značilne za anafilaktično reakcijo:</div>
+				{{ form.simpt }}
+			</div>
+			<br/>
+			<div>
+				<div class="poudarjeno">Korake uporabe Epipena razvrstite v pravilen vrstni red.</div>
+				<div>Prvi korak: {{ form.korak1 }}</div>
+				<div>Drugi korak: {{ form.korak2 }}</div>
+				<div>Tretji korak: {{ form.korak3 }}</div>
+			</div>
+			<input type="submit" value="Preveri rešitev">
+		</form>
+	</div>
+{% endblock %}

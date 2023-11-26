@@ -1,4 +1,5 @@
 from django import forms
+from django.forms import widgets
 
 class NNZKlic(forms.Form):
     opts1 = forms.BooleanField(required=False, initial=False)
@@ -123,7 +124,7 @@ class OBVOpekline(forms.Form):
     opts10 = forms.BooleanField(required=False, initial=False)
 
     def correct(self):
-        return ({ 'correct': self.cleaned_data['opts1'] 
+        return ({ 'correct': self.cleaned_data['opts1']
                 and not self.cleaned_data['opts2']
                 and not self.cleaned_data['opts3']
                 and not self.cleaned_data['opts4']
@@ -153,3 +154,48 @@ class OBVPolozaji(forms.Form):
                 and self.cleaned_data['opts2'] == '2'
                 and self.cleaned_data['opts3'] == '1'})
 
+
+alergchoices = [
+    (0, 'težko dihanje'),
+    (1, 'tiščoča bolečina za prsnico'),
+    (2, 'slabost in bruhanje'),
+    (3, 'hud glavobol'),
+    (4, 'koprivnica (kožni izpuščaj)'),
+]
+koraki = [
+    '-------------',
+    'odstranimo modro varovalo',
+    'pokličemo 112',
+    'epipen z oranžnim koncem zapičimo v stegno, lahko kar skozi hlače',
+]
+korakchoices = tuple(map(lambda a: (a, a), koraki))
+class OBVAlergije(forms.Form):
+    simpt = forms.MultipleChoiceField(choices=alergchoices,
+                                      widget=widgets.CheckboxSelectMultiple)
+
+    korak1 = forms.ChoiceField(choices=korakchoices, required=False)
+    korak2 = forms.ChoiceField(choices=korakchoices, required=False)
+    korak3 = forms.ChoiceField(choices=korakchoices, required=False)
+
+    def correct(self):
+        from django.template.loader import get_template
+        kor_templ = get_template('naloge/alerg_sol_korak.html')
+
+        def kor_check(cans, uans, num, Num):
+            return kor_templ.render({
+                'cans': cans,
+                'uans': uans,
+                'num': num,
+                'Num': Num,
+                })
+
+        cd = self.cleaned_data
+        pravisimpt = list(range(0, 5, 2))
+        simpt = [((str(i) in cd['simpt']) == (i in pravisimpt), simptom, i in pravisimpt) for (i, simptom) in alergchoices]
+        return { 'correct' :
+                { 'simpt': simpt,
+                 'korak1': kor_check('odstranimo modro varovalo', cd['korak1'], 'prvi', 'Prvi'),
+                 'korak2': kor_check('epipen z oranžnim koncem zapičimo v stegno, lahko kar skozi hlače', cd['korak2'], 'drugi', 'Drugi'),
+                 'korak3': kor_check('pokličemo 112', cd['korak3'], 'tretji', 'Tretji'),
+                 },
+                }

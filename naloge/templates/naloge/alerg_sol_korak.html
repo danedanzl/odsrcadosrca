@@ -1,0 +1,17 @@
+{% if cans == uans %}
+	<div class="odgbox">
+		Res je <span class="poudarjeno">{{ num }} korak</span> uporabe epipena
+		<span class="pravilno">{{ cans }}</span>.
+	</div>
+{% elif uans == '-------------' %}
+	<div class="odgbox">
+		<span class="poudarjeno">{{ Num }} korak</span> uporabe epipena je
+		<span class="poudarjeno">{{ cans }}</span>.
+	</div>
+{% else %}
+	<div class="odgbox">
+		Ne, <span class="poudarjeno">{{ num }} korak</span> uporabe epipena
+		ni <span class="narobe">{{ uans }}</span> temveč je
+		<span class="poudarjeno">{{ cans }}</span>.
+	</div>
+{% endif %}

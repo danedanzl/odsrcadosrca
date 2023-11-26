@@ -12,7 +12,7 @@ def get_mchoicetask(category, name):
 
 ktji = [
         kt.KT(3066, 4064,
-              (task.Task("obv_alergije", "Alergije"),
+              (task.Task("obv_alergije", "Alergije", forms.OBVAlergije),
                get_mchoicetask(category="nnz", name="epipen")),
               "Pri edinem sidru v Ljubljani",
               "Kongresni trg - po sredinskih stopnicah v garažno hišo pod Kongresnim trgom (poleg glavne blagajne)"),
