@@ -79,31 +79,34 @@ class NNZNezavest(forms.Form):
 
 class NNZKrvavitve(forms.Form):
     CHOICES = (
-        (1, 'A'),
-        (2, 'B'),
-        (3, 'C'),
-        (4, 'D'),
-        (5, 'E'),
-        (6, 'F'),
-        (7, 'G'),
-        (8, 'H'),
-        (9, 'I'),
+        (0, ''),
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+        (6, '6'),
+        (7, 'Koraka na sliki ne smemo narediti'),
     )
 
-    opts1 = forms.ChoiceField(choices=CHOICES)
-    opts2 = forms.ChoiceField(choices=CHOICES)
-    opts3 = forms.ChoiceField(choices=CHOICES)
-    opts4 = forms.ChoiceField(choices=CHOICES)
-    opts5 = forms.ChoiceField(choices=CHOICES)
-    opts6 = forms.ChoiceField(choices=CHOICES)
+    optsA = forms.ChoiceField(choices=CHOICES)
+    optsB = forms.ChoiceField(choices=CHOICES)
+    optsC = forms.ChoiceField(choices=CHOICES)
+    optsD = forms.ChoiceField(choices=CHOICES)
+    optsE = forms.ChoiceField(choices=CHOICES)
+    optsF = forms.ChoiceField(choices=CHOICES)
+    optsG = forms.ChoiceField(choices=CHOICES)
+    optsH = forms.ChoiceField(choices=CHOICES)
 
     def correct(self):
-        return ({ 'correct': self.cleaned_data['opts1'] == '6'
-                and self.cleaned_data['opts2'] == '3'
-                and self.cleaned_data['opts3'] == '4'
-                and self.cleaned_data['opts4'] == '9'
-                and self.cleaned_data['opts5'] == '1'
-                and self.cleaned_data['opts6'] == '8'})
+        return ({ 'correct': self.cleaned_data['optsA'] == '5'
+                and self.cleaned_data['optsB'] == '7'
+                and self.cleaned_data['optsC'] == '2'
+                and self.cleaned_data['optsD'] == '3'
+                and self.cleaned_data['optsE'] == '4'
+                and self.cleaned_data['optsF'] == '1'
+                and self.cleaned_data['optsG'] == '7'
+                and self.cleaned_data['optsH'] == '6' })
 
 
 class OBVOpekline(forms.Form):
