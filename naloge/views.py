@@ -32,7 +32,7 @@ ktji = [
              "Nasproti hotela, ki nosi enako ime kot ljubljanska pivovarna",
              "Miklošičeva cesta 5"),
         kt.KT(8759, 9918,
-              (task.Task("obv_imobilizacija", "Imobilizacija"),
+              (task.Task("obv_imobilizacija", "Imobilizacija", forms.OBVImobilizacija),
                get_mchoicetask(category="nnz", name="imobilizacija")),
              "V bližini se nahaja radiotelevizija Slovenija (RTV)",
              "Komenskega ulica 4"),

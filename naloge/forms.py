@@ -51,3 +51,14 @@ class NNZOpekline(forms.Form):
 
 class TrivialForm(forms.Form):
     pass
+
+class OBVImobilizacija(forms.Form):
+    r1 = forms.CharField(max_length=40, widget=forms.RadioSelect(choices=(('Leva fotografija','Leva fotografija'), ('Desna fotografija','Desna fotografija'))))
+    r2 = forms.CharField(max_length=40, widget=forms.RadioSelect(choices=(('Leva fotografija','Leva fotografija'), ('Desna fotografija','Desna fotografija'))))
+
+    def correct(self):
+        print(self.cleaned_data['r1'])
+        print(self.cleaned_data['r2'])
+        d = { 'first' : self.cleaned_data['r1'] == 'Leva fotografija',
+             'second' : self.cleaned_data['r2'] == 'Desna fotografija' }
+        return d | { 'correct' : d['first'] and d['second'] }

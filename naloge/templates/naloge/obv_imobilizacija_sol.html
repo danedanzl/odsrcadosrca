@@ -1,0 +1,17 @@
+{% extends 'naloge/sol_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>{{task.display_name}}</h3>
+		{% if correct %}
+		<p>Odgovor je pravilen!</p>
+		{% else %}
+		{% if not first %}
+		<p>V prvem primeru je odgovor napačen. Pri desni sliki gre za imobilizacijo zapestja.</p>
+		{% endif %}
+		{% if not second %}
+		<p>V drugem primeru je odgovor napačen. Leva slika predstavlja imobilizacijo gležnja.</p>
+		{% endif %}
+		{% endif %}
+	</div>
+{% endblock %}

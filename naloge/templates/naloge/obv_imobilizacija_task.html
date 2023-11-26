@@ -1,0 +1,41 @@
+{% extends 'naloge/task_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>{{task.display_name}}</h3>
+		<p>
+		Pred tabo so štiri fotografije oskrbe poškodb. Označi, katera slika
+		predstavlja katero poškodbo.
+		</p>
+		<form method=post>
+			{% csrf_token %}
+			<p><b>1.</b> Katera fotografija prestavlja imobilizacijo poškodbe podlaktice?</p>
+			<div class="grid">
+				<div class="row">
+					<div style="width:50%;" class="column">
+						<img src={% static 'img/images/obv_imo1.jpg' %}>
+					</div>
+					<div style="width:50%;" class=column>
+						<img src={% static 'img/images/obv_imo2.jpg' %}>
+					</div>
+				</div>
+			</div>
+			{{ form.r1 }}
+			<br>
+
+			<p><b>2.</b> Katera fotografija prestavlja imobilizacijo poškodbe golenice?</p>
+			<div class="grid">
+				<div class="row">
+					<div style="width:50%;" class="column">
+						<img src={% static 'img/images/obv_imo3.jpg' %}>
+					</div>
+					<div style="width:50%;">
+						<img src={% static 'img/images/obv_imo4.jpg' %}>
+					</div>
+				</div>
+			</div>
+			{{ form.r2 }}
+			<input type="submit" value="Preveri rešitev">
+		</form>
+	</div>
+{% endblock %}
