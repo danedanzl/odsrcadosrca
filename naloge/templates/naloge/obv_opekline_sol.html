@@ -1,0 +1,12 @@
+{% extends 'naloge/sol_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>Opekline</h3>
+		{% if correct %}
+		<p>Pravilno!</p>
+		{% else %}
+		<p>Narobe! Poskusi ponovno.</p>
+		{% endif %}
+	</div>
+{% endblock %}

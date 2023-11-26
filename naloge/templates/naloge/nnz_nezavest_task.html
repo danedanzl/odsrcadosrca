@@ -1,0 +1,30 @@
+{% extends 'naloge/task_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>Položaj za nezavestnega</h3>
+		<p> Katera izmed spodnjih slik prikazuje pravilen položaj za nezavestnega? </p>
+		<form method="post">
+			{% csrf_token %}
+				{{ form.opts1 }}
+
+			<ul>
+				<menu> A:&nbsp&nbsp<img src="{% static 'img/images/nezavest_A.jpg' %}"></menu>	
+				<br>
+				<menu> B:&nbsp&nbsp<img src="{% static 'img/images/nezavest_B.jpg' %}"></menu>	
+				<br>
+				<menu> C:&nbsp&nbsp<img src="{% static 'img/images/nezavest_C.jpg' %}"></menu>	
+				<br>
+				<menu> D:&nbsp&nbsp<img src="{% static 'img/images/nezavest_D.jpg' %}"></menu>	
+				<br>
+				<menu> E:&nbsp&nbsp<img src="{% static 'img/images/nezavest_E.jpg' %}"></menu>	
+				<br>
+				<menu> F:&nbsp&nbsp<img src="{% static 'img/images/nezavest_F.jpg' %}"></menu>	
+				<br>
+				<menu> G:&nbsp&nbsp<img src="{% static 'img/images/nezavest_G.jpg' %}"></menu>	
+				<br>
+			</ul>
+			<input type="submit" value="Preveri rešitev">
+		</form>
+	</div>
+{% endblock %}

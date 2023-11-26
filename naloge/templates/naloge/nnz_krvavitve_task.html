@@ -1,0 +1,39 @@
+{% extends 'naloge/task_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>Krvavitve</h3>
+		<p> Izberite pravilno zaporedje za oskrbe krvavitve. Možni koraki so prikazani na slikah spodaj. Nekaj slik je odveč.</p>
+		<form method="post">
+			{% csrf_token %}
+				{{ form.opts1 }}
+				{{ form.opts2 }}
+				{{ form.opts3 }}
+				{{ form.opts4 }}
+				{{ form.opts5 }}
+				{{ form.opts6 }}
+
+			<ul>
+				<menu> A:&nbsp&nbsp<img src="{% static 'img/images/krvavitev_A.jpg' %}"></menu>	
+				<br>
+				<menu> B:&nbsp&nbsp<img src="{% static 'img/images/krvavitev_B.jpg' %}"></menu>	
+				<br>
+				<menu> C:&nbsp&nbsp<img src="{% static 'img/images/krvavitev_C.jpg' %}"></menu>	
+				<br>
+				<menu> D:&nbsp&nbsp<img src="{% static 'img/images/krvavitev_D.jpg' %}"></menu>	
+				<br>
+				<menu> E:&nbsp&nbsp<img src="{% static 'img/images/krvavitev_E.jpg' %}"></menu>	
+				<br>
+				<menu> F:&nbsp&nbsp<img src="{% static 'img/images/krvavitev_F.jpg' %}"></menu>	
+				<br>
+				<menu> G:&nbsp&nbsp<img src="{% static 'img/images/krvavitev_G.jpg' %}"></menu>	
+				<br>
+				<menu> H:&nbsp&nbsp<img src="{% static 'img/images/krvavitev_H.jpg' %}"></menu>	
+				<br>
+				<menu> I:&nbsp&nbsp<img src="{% static 'img/images/krvavitev_I.jpg' %}"></menu>	
+				<br>
+			</ul>
+			<input type="submit" value="Preveri rešitev">
+		</form>
+	</div>
+{% endblock %}

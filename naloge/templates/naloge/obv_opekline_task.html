@@ -1,0 +1,24 @@
+{% extends 'naloge/task_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>Opekline</h3>
+		<p>Iz nabora ukrepov označite tiste, ki so ustrezni za oskrbo opekline z večjimi mehurji.</p>
+		<form method="post">
+			{% csrf_token %}
+			<ul>
+				<li>{{ form.opts1 }} Hlajenje s hladno vodo.</li>
+				<li>{{ form.opts2 }} Hladimo z ledom.</li>
+				<li>{{ form.opts3 }} Predremo mehurje.</li>
+				<li>{{ form.opts4 }} Na mehurje namažemo hladilno kremo.</li>
+				<li>{{ form.opts5 }} Za zaščito opečene kože lahko uporabimo mrežico za opekline, ki jo kupimo v lekarni.</li>
+				<li>{{ form.opts6 }} Za zaščito opečene kože lahko uporabimo aluplast, ki ga namestimo z belo stranjo na opeklino.</li>
+				<li>{{ form.opts7 }} Za zaščito opečene kože lahko uporabimo aluplast, ki ga namestimo s srebrno stranjo na opeklino.</li>
+				<li>{{ form.opts8 }} Za zaščito opečene kože lahko uporabimo suho gazo.</li>
+				<li>{{ form.opts9 }} Za zaščito opečene kože lahko uporabimo mokro gazo.</li>
+				<li>{{ form.opts10 }} Povijemo s povojem.</li>
+			</ul>
+			<input type="submit" value="Preveri rešitev">
+		</form>
+	</div>
+{% endblock %}

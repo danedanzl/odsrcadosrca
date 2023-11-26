@@ -1,0 +1,12 @@
+{% extends 'naloge/sol_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>Položaj za nezavestnega</h3>
+		{% if correct %}
+		<p>Pravilno! Pri položaju za nezavestnega je pomembno, da je oseba stabilno postavljena na bok, da ima podprto glavo, odprta usta, ter ven viseč jezik, da se z njim ne zaduši.</p>
+		{% else %}
+		<p>Narobe! Poskusite ponovno. Pri položaju za nezavestnega je pomembno, da je oseba stabilno postavljena na bok, da ima 		podprto glavo, odprta usta, ter ven viseč jezik, da se z njim ne zaduši. </p>
+		{% endif %}
+	</div>
+{% endblock %}

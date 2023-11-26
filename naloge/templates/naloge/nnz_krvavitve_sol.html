@@ -1,0 +1,12 @@
+{% extends 'naloge/sol_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>Krvavitve</h3>
+		{% if correct %}
+		<p>Pravilno, bravo! Pri krvavitvah je pomembno, da najprej (če je možno, s sterilno gazo) močno pritisnemo na rano, gazo pričvrstimo s povojem, potem s pomočjo primernega predmeta (pogosto drugega povoja) dodatno pritisnemo na rano in vse skupaj trdno povijemo. Poškodovani ud na koncu imobiliziramo.</p>
+		{% else %}
+		<p>Narobe! Poskusite ponovno. Pri krvavitvah je pomembno, da najprej (če je možno, s sterilno gazo) močno pritisnemo na rano, gazo pričvrstimo s povojem, potem s pomočjo primernega predmeta (pogosto drugega zvitega povoja) dodatno pritisnemo na rano in vse skupaj trdno povijemo. Poškodovani ud na koncu imobiliziramo.</p>
+		{% endif %}
+	</div>
+{% endblock %}

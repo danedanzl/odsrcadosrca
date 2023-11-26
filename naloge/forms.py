@@ -62,3 +62,76 @@ class OBVImobilizacija(forms.Form):
         d = { 'first' : self.cleaned_data['r1'] == 'Leva fotografija',
              'second' : self.cleaned_data['r2'] == 'Desna fotografija' }
         return d | { 'correct' : d['first'] and d['second'] }
+
+class NNZNezavest(forms.Form):
+    CHOICES = (
+        (1, 'A'),
+        (2, 'B'),
+        (3, 'C'),
+        (4, 'D'),
+        (5, 'E'),
+        (6, 'F'),
+        (7, 'G'),
+        (8, 'H'),
+    )
+
+    opts1 = forms.ChoiceField(choices=CHOICES)
+
+    def correct(self):
+        return (self.cleaned_data['opts1'] == '3')
+
+
+class NNZKrvavitve(forms.Form):
+    CHOICES = (
+        (1, 'A'),
+        (2, 'B'),
+        (3, 'C'),
+        (4, 'D'),
+        (5, 'E'),
+        (6, 'F'),
+        (7, 'G'),
+        (8, 'H'),
+        (9, 'I'),
+    )
+
+    opts1 = forms.ChoiceField(choices=CHOICES)
+    opts2 = forms.ChoiceField(choices=CHOICES)
+    opts3 = forms.ChoiceField(choices=CHOICES)
+    opts4 = forms.ChoiceField(choices=CHOICES)
+    opts5 = forms.ChoiceField(choices=CHOICES)
+    opts6 = forms.ChoiceField(choices=CHOICES)
+
+    def correct(self):
+        return (self.cleaned_data['opts1'] == '6'
+                and self.cleaned_data['opts2'] == '3'
+                and self.cleaned_data['opts3'] == '4'
+                and self.cleaned_data['opts4'] == '9'
+                and self.cleaned_data['opts5'] == '1'
+                and self.cleaned_data['opts6'] == '8')
+
+
+class OBVOpekline(forms.Form):
+    opts1 = forms.BooleanField(required=False, initial=False)
+    opts2 = forms.BooleanField(required=False, initial=False)
+    opts3 = forms.BooleanField(required=False, initial=False)
+    opts4 = forms.BooleanField(required=False, initial=False)
+    opts5 = forms.BooleanField(required=False, initial=False)
+    opts6 = forms.BooleanField(required=False, initial=False)
+    opts7 = forms.BooleanField(required=False, initial=False)
+    opts8 = forms.BooleanField(required=False, initial=False)
+    opts9 = forms.BooleanField(required=False, initial=False)
+    opts10 = forms.BooleanField(required=False, initial=False)
+
+    def correct(self):
+        return (self.cleaned_data['opts1'] 
+                and not self.cleaned_data['opts2']
+                and not self.cleaned_data['opts3']
+                and not self.cleaned_data['opts4']
+                and self.cleaned_data['opts5']
+                and not self.cleaned_data['opts6']
+                and self.cleaned_data['opts7']
+                and not self.cleaned_data['opts8']
+                and self.cleaned_data['opts9']
+                and self.cleaned_data['opts10'])
+
+
