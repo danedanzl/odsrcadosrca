@@ -194,3 +194,63 @@ class OBVAlergije(forms.Form):
                  'korak3': kor_check('pokličemo 112', cd['korak3'], 'tretji', 'Tretji'),
                  },
                 }
+
+
+post = [
+    ('Zaščiti ga pred mrazom, prizadete dele telesa postopoma ogrevaj.', ''),
+    ('Ne spodbujaj gibanja, aktivno ga grej z nečim toplim.', 'Ko se podhlajeno telo ne ogreva več z drgetanjem, ga grejemo le še pasivno, ne več z gibanjem.'),
+    ('Spodbujaj ga, da se giblje in po požirkih pije tople in sladke napitke, da se pogreje. Poskrbi, da ima oblečena suha in topla oblačila ter da je na toplem in v zavetrju.', 'Dokler je podhlajeni pri zavesti in se njegovo telo poskuša ogreti z drgetanjem, ga najbolj učinkovito z navedenimi ukrepi.'),
+    ('Sprosti tesna mesta obleke, naj pije topel napitek. Prizadete dele telesa ogrevaj z namakanjem v topli vodi za 30 min.', ''),
+]
+simpt = [
+    'Prizadeti je premražen, pri zavesti in dregeta.',
+    'Prizadeti je premražen, zaspan in otopel.',
+    'Prizadeti ima ozeblino (koža je bleda, svetleča, razpokana in manj občutljiva na mraz).',
+    'Prizadeti ima omrzlino (koža je bleda, modrikasta, nastanejo lahko mehurji).',
+]
+simpt_display = [
+        ('Če je', 'prizadeti premražen, pri zavesti in dregeta'),
+        ('Če je', 'prizadeti premražen, zaspan in otopel'),
+        ('Če ima', 'prizadeti ozeblino (koža je bleda, svetleča, razpokana in manj občutljiva na mraz)'),
+        ('Če ima', 'prizadeti omrzlino (koža je bleda, modrikasta, nastanejo lahko mehurji)'),
+]
+choices = tuple(map(lambda a: (a[0], a[0]), [('---------------', '')] + post))
+
+class OBVMraz(forms.Form):
+
+    posk1 = forms.ChoiceField(label=simpt[0], choices=choices, required=False)
+    posk2 = forms.ChoiceField(label=simpt[1], choices=choices, required=False)
+    posk3 = forms.ChoiceField(label=simpt[2], choices=choices, required=False)
+    posk4 = forms.ChoiceField(label=simpt[3], choices=choices, required=False)
+
+    def correct(self):
+
+        post_orig = [
+            'Spodbujaj ga, da se giblje in po požirkih pije tople in sladke napitke, da se pogreje. Poskrbi, da ima oblečena suha in topla oblačila ter da je na toplem in v zavetrju.',
+            'Ne spodbujaj gibanja, aktivno ga grej z nečim toplim.',
+            'Zaščiti ga pred mrazom, prizadete dele telesa postopoma ogrevaj.',
+            'Sprosti tesna mesta obleke, naj pije topel napitek. Prizadete dele telesa ogrevaj z namakanjem v topli vodi za 30 min.',
+        ]
+        post_display = [
+            ('ga spodbujaj, da se giblje in po požirkih pije tople in sladke napitke, da se pogreje. Poskrbi, da ima oblečena suha in topla oblačila ter da je na toplem in v zavetrju', 'Dokler je podhlajeni pri zavesti in se njegovo telo poskuša ogreti z drgetanjem, je to tako najbolj učinkovito.'),
+            ('ne spodbujaj gibanja, aktivno ga grej z nečim toplim', 'Ko se podhlajeno telo ne ogreva več z drgetanjem, ga grejemo le še pasivno, ne več z gibanjem.'),
+            ('ga zaščiti pred mrazom in prizadete dele telesa postopoma ogrevaj', ''),
+            ('sprosti tesna mesta obleke in naj pije topel napitek. Prizadete dele telesa ogrevaj z namakanjem v topli vodi za 30 min', ''),
+        ]
+
+        from django.template.loader import get_template
+        posk_templ = get_template('naloge/mraz_sol_posk.html')
+
+        def kor_check(i, uans):
+            tip = "prav" if post_orig[i] == uans else "prazno" if uans == '---------------' else "narobe"
+            return posk_templ.render({
+                'tip': tip,
+                'simpt': simpt_display[i],
+                'cans': post_display[i][0],
+                'razl': post_display[i][1],
+                'uans': uans,
+                })
+
+        cd = self.cleaned_data
+        ret = { 'correct' : { f'posk{i+1}': kor_check(i, cd[f'posk{i+1}']) for i in range(4) }, }
+        return ret

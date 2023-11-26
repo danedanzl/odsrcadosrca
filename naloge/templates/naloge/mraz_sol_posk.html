@@ -1,0 +1,22 @@
+{% if tip == 'prav' %}
+	<div class="odgbox">
+		Res, {{ simpt.0|lower }} <span class="poudarjeno">{{ simpt.1 }}</span>,
+		<span class="pravilno">{{ cans }}</span>. {{ razl }}
+	</div>
+{% elif tip == 'prazno' %}
+	<div class="odgbox">
+		{{ simpt.0 }} <span class="poudarjeno">{{ simpt.1 }}</span>,
+		<span class="poudarjeno">{{ cans }}</span>. {{ razl }}
+	</div>
+{% else %}
+	<div class="odgbox">
+		<div>
+			{{ simpt.0 }} <span class="poudarjeno">{{ simpt.1 }}</span>,
+			<span class="poudarjeno">{{ cans }}</span>. {{ razl }}
+		</div>
+		<div>
+			Vi ste izbrali: <span class="narobe">{{ uans }}</span>
+		</div>
+	</div>
+{% endif %}
+<br/>

@@ -1,0 +1,15 @@
+{% extends 'naloge/task_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>{{task.display_name}}</h3>
+		<form method=post>
+			{% csrf_token %}
+			<div>
+				<div class="poudarjeno">Za vsako poškodbo izberi pravilno ravnanje.</div>
+				{{ form.as_p }}
+			</div>
+			<input type="submit" value="Preveri rešitev">
+		</form>
+	</div>
+{% endblock %}

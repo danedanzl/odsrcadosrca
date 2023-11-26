@@ -27,7 +27,7 @@ ktji = [
              "Na nasprotni strani parka se nahaja vrhovno sodišče Republike Slovenije",
              "Dalmatinova ulica 4"),
         kt.KT(6415, 6859,
-              (task.Task("obv_mraz", "Poškodbe zaradi mraza"),
+              (task.Task("obv_mraz", "Poškodbe zaradi mraza", forms.OBVMraz),
                task.Task("nnz_ozebline", "Ozebline", forms.TrivialForm)),
              "Nasproti hotela, ki nosi enako ime kot ljubljanska pivovarna",
              "Miklošičeva cesta 5"),
