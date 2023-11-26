@@ -54,7 +54,7 @@ class MchoiceTask(Task):
 
         return render(request, self.template(self.task_templname),
                       { 'task': self, 'form': form, 'inv':
-                       f"naloge:{self.fullname}_task" })
+                       f"{self.fullname}_task" })
 
     @staticmethod
     def template(viewname):
