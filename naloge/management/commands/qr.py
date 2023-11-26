@@ -6,8 +6,6 @@ from django.urls import reverse
 
 import segno
 
-from naloge.views import task_list
-
 # XXX: should be in settings.py or something
 ROOT_URL = "https://odsrcadosrca.rodsivegavolka.si"
 
