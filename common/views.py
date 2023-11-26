@@ -76,7 +76,8 @@ def ktlist(request, group, done):
             continue
         ktji.append({
             'url' : reverse("img", kwargs={ 'imgid': kt.imgid }),
-            'imgurl': f"img/nav/{kt.imgid}.jpg",
+            'imgurl': f"img/nav/{kt.imgid}_small.jpg",
+            'doneurl': f"img/nav/{kt.imgid}_done.jpg",
             'done': done[i], # TODO
         })
     last = ktji[-1]

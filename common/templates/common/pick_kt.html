@@ -15,7 +15,7 @@
 								{% if not kt0.done %}
 									<img width=120 height=160 src="{% static kt0.imgurl %}">
 								{% else %}
-									<img style="opacity:0.3;" width=120 height=160 src="{% static kt0.imgurl %}">
+									<img width=120 height=160 src="{% static kt0.doneurl %}">
 								{% endif %}
 							</a>
 						</div>
@@ -24,7 +24,7 @@
 								{% if not kt1.done %}
 									<img width=120 height=160 src="{% static kt1.imgurl %}">
 								{% else %}
-									<img style="opacity:0.3;" width=120 height=160 src="{% static kt1.imgurl %}">
+									<img width=120 height=160 src="{% static kt1.doneurl %}">
 								{% endif %}
 							</a>
 						</div>
@@ -38,7 +38,7 @@
 								{% if not last.done %}
 									<img width=120 height=160 src="{% static last.imgurl %}">
 								{% else %}
-									<img style="opacity:0.3;" width=120 height=160 src="{% static last.imgurl %}">
+									<img width=120 height=160 src="{% static last.doneurl %}">
 								{% endif %}
 							</a>
 						</div>
