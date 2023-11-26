@@ -22,7 +22,7 @@ ktji = [
                task.Task("nnz_zadusitve", "Zadušitve"))),
         kt.KT(6415, 6859,
               (task.Task("obv_mraz", "Poškodbe zaradi mraza"),
-               task.Task("nnz_ozebline", "Ozebline"))),
+               task.Task("nnz_ozebline", "Ozebline", forms.NNZOzebline))),
         kt.KT(8759, 9918,
               (task.Task("obv_imobilizacija", "Imobilizacija"),
                get_mchoicetask(category="nnz", name="imobilizacija"))),

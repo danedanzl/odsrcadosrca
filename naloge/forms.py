@@ -49,3 +49,5 @@ class NNZOpekline(forms.Form):
                         |{f"c{i}" : "green" if s[i-1] == r[i-1] else "red" for i in range(1, len(s)+1)})}
 
 
+class NNZOzebline(forms.Form):
+    pass

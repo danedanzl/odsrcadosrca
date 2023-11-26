@@ -1,0 +1,116 @@
+{% extends 'naloge/task_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>{{task.display_name}}</h3>
+		<p>Pred vami je odločitveno drevo. Ste mlad fant, ki se s svojo družino
+		odpravlja smučat. Sami se lahko odločate kako ravnati v prihajajočih
+		situacijah. Izberite enega izmed dveh oz. treh odgovorov, da
+		nadaljujete naprej po zgodbi.</p>
+		<script>
+			var q = [ "",
+				"Odpravljam se na smučanje. Katere rokavice vzamem s seboj?",
+				"Med smučanjem me začne zebsti. Kaj naredim?",
+				"Vreme se je poslabšalo in začelo je snežiti. Ali mlajši sestrici posodim dodaten par rokavic, ki ga imam v žepu?",
+				"Namesto sneženja začne deževati. Kaj naredim?",
+				"Napol premočen prispem v toplo kočo. Slečem si …",
+				"Namesto sneženja začne deževati in v hipu sem premočen.",
+				"Sestrica mi pove, da rok ne čuti več in da je čaj verjetno pomagal.",
+				"Ko sestrici slečem rokavice opazim, da so njene roke ledene na otip in rahlo blede in mehurjaste.",
+				"Začne me zelo zebsti, saj sem moker in premražen. Kaj pa zdaj?",
+				"Prispejo rešilci in me okregajo, da ne bi smel klicati rešilcev, sestrica pa ima zdaj še opekline na rokah.",
+				"Suh in topel se uležem na kavč in prižgem televizijo, saj zunaj dežuje in se počasi že mrači. Vsaj prehladil se nisem :)",
+				"Premražen in skesan se uležem na kavč in prižgem TV. Verjetno sem se prehladil… Takega smučanja ne želim več ponoviti.",
+				"Naenkrat ne čutimo več prstov, kaj se dogaja?",
+				"Sestrici roke popolnoma otrpnejo. Nekaj ni v redu …",
+				"Starši prispejo, me okregajo in odpravimo se v kočo. Premražen in skesan se uležem na kavč in prižgem TV. Verjetno sem se prehladil… Takega smučanja ne želim več ponoviti.",
+				"Na poti srečam starše, ki vidijo da se tresem in me nemudoma odpeljejo v kočo, kjer me okregajo. Premražen in skesan se uležem na kavč in prižgem TV. Verjetno sem se prehladil… Takega smučanja ne želim več ponoviti."
+			]
+
+			var txt = [[],
+				[
+					"Tanke volnene rokavice, ki mi jih je sešila babica.",
+					"Debele smučarske rokavice, ki so prišle zraven kompleta opreme."
+				], [
+					"Ne zmenim se za to, saj bo kmalu zasijalo sonce in nas pogrelo.",
+					"Dlani si polijem z vročim čajem, ki nas bo lepo pogrel.",
+					"Ustavim se in si tesneje zapnem zadrgo na jakni.",
+				], [
+					"Ja, saj me je strah, da se bo prehladila.",
+					"Ne, saj ima tudi ona že volnene rokavice.",
+					"Ne, raje tudi njej polijem dlani s čajem.",
+				], [
+					"Odpeljem se do sedežnice, ki pelje na najvišji vrh, saj tam gor sneži in ne dežuje.",
+					"Odpeljem se do koče in prenehamo s smučanjem za ta dan.",
+					"Slečem si čelado in si nadenem kapuco, saj bo smučišče zaradi manj smučarjev bolj varno in čelade ne potrebujem."
+				], [
+					"Le rokavice in čevlje, saj me smučarska jakna greje.",
+					"Le jakno, saj imam mokre rokavice, ki me bodo hladile, da se ne prepotim.",
+					"Vsa mokra oblačila in se popolnoma preoblečem v suho.",
+				], [
+					"Skupaj s sestrico se odpravim v kočo kjer ji pogrejem roke in naju oba preoblečem v suho.",
+					"Smučanje nadaljujem, saj je hlad del smučanja.",
+				], [
+					"Nasmehnem se ji in skupaj nadaljujeva s smučanjem.",
+					"Nemudoma ji zamenjam mokre rokavice s suhimi in jo odpeljem na toplo.",
+				], [
+					"Roke ji potopim v mlačno vodo in pokličem starše.",
+					"Roke ji potopim v vrelo vodo in pokličem 112.",
+				], [
+					"Opravičim se reševalcem, pokličem starše in se s sestrico odpravim do koče, kjer se do suhega preoblečem.",
+					"Odpravim se v kočo s sestrico, in naju oba posušim.",
+				], [ ], [ ], [
+					"Mrzle roke imam, takoj jih je treba pogreti!",
+					"Pretesno sem držal palice, smučanje lahko nadaljujem.",
+				], [
+					"Odpeljem naju na toplo in nama slečem mokre obleke.",
+				], [], []
+			]
+			var g = [[1], [2,3], [9, 13, 3], [4, 6, 7], [9, 5, 9], [12, 12, 11], [11, 9], [14, 8], [15, 10], [5, 16], [11, 11], "end", "end", [5, 16], [8], "end", "end"];
+
+			function $(s) {
+				var el = document.getElementById(s);
+				return el;
+			};
+
+			var state = 0;
+			function click(nr) {
+				state = g[state][nr];
+				$("lbl").innerHTML = q[state];
+				if (g[state] === "end") {
+					$("btn4").style.display = "block";
+					$("btn1").style.display = "none";
+					$("btn2").style.display = "none";
+					$("btn3").style.display = "none";
+					return;
+				}
+				$("btn1").innerHTML = txt[state][0];
+				if (txt[state].length >= 2) {
+					$("btn2").innerHTML = txt[state][1];
+					$("btn2").style.display = "block";
+				} else {
+					$("btn2").style.display = "none";
+				}
+				if (txt[state].length >= 3) {
+					$("btn3").innerHTML = txt[state][2];
+					$("btn3").style.display = "block";
+				} else {
+					$("btn3").style.display = "none";
+				}
+
+			};
+		</script>
+		<p id=lbl> </p>
+		<button id=btn1></button>
+		<button id=btn2></button>
+		<button id=btn3></button>
+		<button id=btn4 class=contrast onclick="window.location.href='{% url 'ktlist' %}';">Izberi naslednjo točko</button>
+		<script>
+			$("btn1").onclick = function(){click(0)};
+			$("btn2").onclick = function(){click(1)};
+			$("btn3").onclick = function(){click(2)};
+			$("btn4").style.display = "none";
+			click(0);
+		</script>
+	</div>
+{% endblock %}
