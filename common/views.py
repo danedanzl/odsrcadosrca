@@ -18,8 +18,6 @@ class Group(Enum):
 def validate_cookies(fn):
     @functools.wraps(fn)
     def wrapper(request, *args, **kwargs):
-        request.session = {}
-
         # group
         if (group := request.COOKIES.get("group")) == "nnz":
             group = Group.NNZ
@@ -28,6 +26,7 @@ def validate_cookies(fn):
         elif group is not None:
             raise SuspiciousOperation
 
+        # done
         if (done := request.COOKIES.get("done")) is not None:
             if len(done) != 11 or done.count('0') + done.count('1') != 11:
                 raise SuspiciousOperation
@@ -66,6 +65,8 @@ def cookie_reset(request):
 
 @validate_cookies
 def ktlist(request, group, done):
+    if done is None:
+        return redirect("start")
     if group is None:
         return redirect("group_selection")
     ktji = []
@@ -84,6 +85,10 @@ def ktlist(request, group, done):
 
 @validate_cookies
 def kt(request, group, done, kt):
+    if done is None:
+        return redirect("start")
+    if group is None:
+        return redirect("group_selection")
     curr = kt
     for i,kt in enumerate(sorted(list(task_map.values()))):
         if kt.urlid == curr:

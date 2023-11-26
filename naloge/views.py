@@ -56,7 +56,7 @@ ktji = [
                task.Task("nnz_ozivljanje", "Oživljanje", forms.TrivialForm)),
             "Na obrobju Emone",
             "Mirje 19"),
-        kt.KT(2778, 2654,
+        kt.KT(2777, 2654,
               (get_mchoicetask(category="obv", name="zastrupitve"),
                None),
              "Na lokaciji se nahaja tudi plesni teater Ljubljana",
