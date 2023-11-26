@@ -1,0 +1,35 @@
+{% extends 'naloge/sol_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>{{task.display_name}}</h3>
+		{% if correct %}
+		<p>Čestitke! Vsi odgovori so pravilni</p>
+		{% else %}
+		<p>V tvojo zgodbico se je prikradlo nekaj napak. Jakobov dan je v resnici potekal takole:</p>
+			<p>
+			Jakob je imel prejšnjo sredo pravo odisejado! Zjutraj ga je zbudilo
+			<span style="color:{{sol.c1}};">{{ sol.f1 }}</span> ki mu je že nekaj ur močno <span style="color:{{sol.c2}};">{{ sol.f2 }}</span> v obraz. Ugotovil je, da se je
+			zbudil 1 uro prepozno in da že zdavnaj zamuja v šolo. Kakor se da hitro
+			se je oblekel in si ob natikanju hlač močno <span style="color:{{sol.c3}};">{{ sol.f3 }}</span> od hlačnice. V
+			kopalnici je med umivanjem zob opazil, kako rdeč je v obraz zaradi
+			Sonca, vendar se za to ni zmenil in se odpravil v kuhinjo. Ob delanju
+			kave je po pomoti brez prijemalke dvignil čajnik poln vroče vode. V <span style="color:{{sol.c4}};">{{ sol.f4 }}</span>
+			od vročine se mu je vsa voda razlila po tleh in po njegovih bosih
+			stopalih. V kriku je odhitel v kopalnico pod mrzel tuš in si z <span style="color:{{sol.c5}};">{{ sol.f5 }}</span>
+			spiral stopala <span style="color:{{sol.c6}};">{{ sol.f6 }}</span> <br> Ko mu je odleglo je v bolj umirjenem tempu pojedel
+			zajtrk in se odpravil od doma. Ker si stopal ni povil z <span style="color:{{sol.c7}};">{{ sol.f7 }}</span> in gazo so
+			ga ta začela vse bolj boleti. V šolo je zamudil 30 minut in učiteljica
+			športne vzgoje mu zato ni dovolila igrati odbojke. Jakobu je bilo to
+			všeč, saj je svoje noge raje <span style="color:{{sol.c8}};">{{ sol.f8 }}</span> <br> Naslednjo uro je imel krožek
+			spajkanja, kjer si je z vročim Cinom <span style="color:{{sol.c9}};">{{ sol.f9 }}</span> pramen svojih dolgih las. Še
+			cel dan je zaudarjal po <span style="color:{{sol.c10}};">{{ sol.f10 }}</span> <br> Pri kosilu si je v usta dal <span style="color:{{sol.c11}};">{{ sol.f11 }}</span> kos mesa
+			in sošolci so skoraj umrli od smeha, ker je izgledal kot da ima celo
+			pomarančo v ustih. Preostanka kosila ni pojedel, saj zaradi <span style="color:{{sol.c12}};">{{ sol.f12 }}</span> jezika
+			ni okušal več nič. Popoldne je imel zmenek s punco, ki je bila
+			prepričana, da je Jakob <span style="color:{{sol.c13}};">{{ sol.f13 }}</span> zaradi svojih ožganih las. Ona je jedla
+			limonino torto, njemu pa je se je bolj prilegel <span style="color:{{sol.c14}};">{{ sol.f14 }}</span>
+			</p>
+		{% endif %}
+	</div>
+{% endblock %}

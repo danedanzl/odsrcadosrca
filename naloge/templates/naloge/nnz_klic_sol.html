@@ -4,9 +4,16 @@
 	<div>
 		<h3>Klic na 112</h3>
 		{% if correct %}
-		<p>Pravilno!</p>
+		<p>Odgovor je pravilen!</p>
 		{% else %}
-		<p>Narobe! Klic je bil primeren in pravilen le v drugem primeru</p>
+		<p>Narobe! Edini klic, ki je bil primeren in pravilen je bil drugi
+		primer. Klicatelj je po tem, ko ni dobil odziva od osebe po hitrem
+		postopku poklical 112. </p>
+		<p>V prvem primeru klic ni na mestu, ker za takšno plitvo rano ni treba
+		klicati na 112. Klicali bi v primeru, da bi fant neustavljivo krvavel in
+		bil nesposoben hoditi.</p>
+		<p>Vaš odgovor ni pravilen, saj se na 112 kliče v primeru, da nekdo
+		potrebuje nujno pomoč reševalnih enot ali policije.</p>
 		{% endif %}
 	</div>
 {% endblock %}

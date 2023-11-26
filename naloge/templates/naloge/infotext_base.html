@@ -3,7 +3,7 @@
 {% block body %}
 	<div style="min-height: 60px"></div>
 	<main class="container">
-		<img src="{% static 'img/logo.png' %}" class="logo">
+		<a href="/"><img src="{% static 'img/logo_small.png' %}" class="logo-small"></a>
 		<article>
 			{% block content %}{% endblock %}
 			<button onclick="window.location.href='{% url task.task_viewname %}';">Na nalogo</button>

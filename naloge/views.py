@@ -31,7 +31,7 @@ ktji = [
                task.Task("nnz_krvavitve", "Krvavitve"))),
         kt.KT(5647, 9156,
               (task.Task("obv_opekline", "Opekline"),
-               task.Task("nnz_opekline", "Opekline"))),
+               task.Task("nnz_opekline", "Opekline", forms.NNZOpekline))),
         kt.KT(9384, 3296,
               (task.Task("obv_polozaji", "Položaji"),
                task.Task("nnz_nezavest", "Nezavest"))),

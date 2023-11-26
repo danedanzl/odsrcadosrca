@@ -1,0 +1,36 @@
+{% extends 'naloge/task_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>{{task.display_name}}</h3>
+		<p> Pred vami je besedilo, v katerem manjka 14 besed. Dopolnite ga z naslednjimi besedami. Tri od naštetih besed so odveč.</p>
+		<p><b>mrežico, svetilo, hladno vodo, 30 minut, prevelik, sladoled, Sonce, prevroč, opekel zaradi trenja, 15 minut, zažganem, topli čaj, osmodil, šoku, zardel, pustil počivati, ožganega</b></p>
+		<form method=post>
+			{% csrf_token %}
+			<p>
+			Jakob je imel prejšnjo sredo pravo odisejado! Zjutraj ga je zbudilo
+			{{ form.f1 }} ki mu je že nekaj ur močno {{ form.f2 }} v obraz. Ugotovil je, da se je
+			zbudil 1 uro prepozno in da že zdavnaj zamuja v šolo. Kakor se da hitro
+			se je oblekel in si ob natikanju hlač močno {{ form.f3 }} od hlačnice. V
+			kopalnici je med umivanjem zob opazil, kako rdeč je v obraz zaradi
+			Sonca, vendar se za to ni zmenil in se odpravil v kuhinjo. Ob delanju
+			kave je po pomoti brez prijemalke dvignil čajnik poln vroče vode. V {{ form.f4 }}
+			od vročine se mu je vsa voda razlila po tleh in po njegovih bosih
+			stopalih. V kriku je odhitel v kopalnico pod mrzel tuš in si z {{ form.f5 }}
+			spiral stopala {{ form.f6 }} <br> Ko mu je odleglo je v bolj umirjenem tempu pojedel
+			zajtrk in se odpravil od doma. Ker si stopal ni povil z {{ form.f7 }} in gazo so
+			ga ta začela vse bolj boleti. V šolo je zamudil 30 minut in učiteljica
+			športne vzgoje mu zato ni dovolila igrati odbojke. Jakobu je bilo to
+			všeč, saj je svoje noge raje {{ form.f8 }} <br> Naslednjo uro je imel krožek
+			spajkanja, kjer si je z vročim Cinom {{ form.f9 }} pramen svojih dolgih las. Še
+			cel dan je zaudarjal po {{ form.f10 }} <br> Pri kosilu si je v usta dal {{ form.f11 }} kos mesa
+			in sošolci so skoraj umrli od smeha, ker je izgledal kot da ima celo
+			pomarančo v ustih. Preostanka kosila ni pojedel, saj zaradi {{ form.f12 }} jezika
+			ni okušal več nič. Popoldne je imel zmenek s punco, ki je bila
+			prepričana, da je Jakob {{ form.f13 }} zaradi svojih ožganih las. Ona je jedla
+			limonino torto, njemu pa je se je bolj prilegel {{ form.f14 }}
+			</p>
+			<input type="submit" value="Preveri rešitev">
+		</form>
+	</div>
+{% endblock %}

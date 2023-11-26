@@ -21,7 +21,7 @@ class Task:
             form = self.form(request.POST)
             if form.is_valid():
                 return render(request, self.template(self.sol_viewname),
-                                { 'correct': form.correct() })
+                              form.correct() | { 'task' : self })
         else:
             form = self.form()
 
