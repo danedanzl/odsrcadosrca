@@ -47,7 +47,7 @@ ktji = [
              "Na križišču, kjer stoji Sokolski dom",
              "Rozmanova ulica 12"),
         kt.KT(9384, 7966,
-              (task.Task("obv_polozaji", "Položaji"),
+              (task.Task("obv_polozaji", "Položaji", forms.OBVPolozaji),
                task.Task("nnz_nezavest", "Nezavest", forms.NNZNezavest)),
               "Podhod pri slovenskemu hramu kulture",
               "Spodnja etaža MAXI (delovni čas: pon. - ned. med 5.00 ter 23.00)"),

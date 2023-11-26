@@ -1,0 +1,38 @@
+{% extends 'naloge/task_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>Položaji</h3>
+		<p> Za vsako opisano stanje izberite najboljši položaj za poškodovano oz. obolelo osebo. Možne položaje najdete na spodnjih slikah.</p>
+		<form method="post">
+			{% csrf_token %}
+
+			<ul>
+				<menu> A:&nbsp&nbsp<img src="{% static 'img/images/polozaji_3.jpg' %}"></menu>	
+				<br>
+				<menu> B:&nbsp&nbsp<img src="{% static 'img/images/polozaji_2.png' %}"></menu>	
+				<br>
+				<menu> C:&nbsp&nbsp<img src="{% static 'img/images/polozaji_4.jpg' %}"></menu>	
+				<br>
+				<menu> D:&nbsp&nbsp<img src="{% static 'img/images/polozaji_1.jpg' %}"></menu>	
+				<br>
+				<menu> E:&nbsp&nbsp<img src="{% static 'img/images/polozaji_5.jpg' %}"></menu>	
+				<br>
+			</ul>
+
+
+			<p>Scenarij 1: Na tleh najdete osebo, ki se ne odziva, diha pa normalno. </p>
+				{{ form.opts1 }}
+
+			<p>Scenarij 2: Priča ste bili prometni nesreči. Udeleženec, ki na prvi pogled ne deluje poškodovan, je bled, poten, diha plitko in hitro.</p>
+
+				{{ form.opts2 }}
+
+			<p>Scenarij 3: Starejši gospod vam toži, da čuti bolečine v prsnem košu.</p>
+
+				{{ form.opts3 }}
+
+			<input type="submit" value="Preveri rešitev">
+		</form>
+	</div>
+{% endblock %}

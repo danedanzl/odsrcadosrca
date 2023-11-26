@@ -135,3 +135,21 @@ class OBVOpekline(forms.Form):
                 and self.cleaned_data['opts10']})
 
 
+class OBVPolozaji(forms.Form):
+    CHOICES = (
+        (1, 'A'),
+        (2, 'B'),
+        (3, 'C'),
+        (4, 'D'),
+        (5, 'E'),
+    )
+
+    opts1 = forms.ChoiceField(choices=CHOICES)
+    opts2 = forms.ChoiceField(choices=CHOICES)
+    opts3 = forms.ChoiceField(choices=CHOICES)
+
+    def correct(self):
+        return ({ 'correct': self.cleaned_data['opts1'] == '4'
+                and self.cleaned_data['opts2'] == '2'
+                and self.cleaned_data['opts3'] == '1'})
+

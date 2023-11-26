@@ -1,0 +1,19 @@
+{% extends 'naloge/sol_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>Položaji</h3>
+		{% if correct %}
+		<p>Pravilno, bravo!</p>
+                <p>Scenarij 1: Človek, ki se ne odziva, diha pa normalno, je nezavesten, zato ga damo v stabilni bočni položaj za nezavestnega.</p>
+                <p>Scenarij 2: V prometnih nesrečah so lahko udeležene velike sile in njim primerne hude poškodbe (tudi če človek na prvi pogled ne deluje poškodovan). Simptomi nakazujejo na to, da je ponesrečeni v šoku - življenje ogrožajočemu stanju, kjer srce in krvni obtok ne zmoreta zagotoviti dovolj kisika in hranil za normalno delovanje organov. Zato ponesrečenega damo v položaj za šok, kjer z dvigom nog povečamo prekrvavitev življenjsko pomembnih organov v trebušni in prsni votlini ter glavi.</p>
+                <p>Scenarij 3: Pri poškodbah in boleznih v prsnem košu ljudem ponavadi najbolj ustreza polsedeči položaj, v katerem lažje dihajo.</p>
+		{% else %}
+		<p>Narobe! Poskusite ponovno.</p>
+
+                <p>Scenarij 1: Človek, ki se ne odziva, diha pa normalno, je nezavesten.</p>
+                <p>Scenarij 2: V prometnih nesrečah so lahko udeležene velike sile in njim primerne hude poškodbe (tudi če človek na prvi pogled ne deluje poškodovan). Simptomi nakazujejo na to, da je ponesrečeni v šoku - življenje ogrožajočemu stanju, kjer srce in krvni obtok ne zmoreta zagotoviti dovolj kisika in hranil za normalno delovanje organov.</p>
+                <p>Scenarij 3: Pri poškodbah in boleznih v prsnem košu ljudem ponavadi najbolj ustreza položaj, v katerem lažje dihajo.</p>
+		{% endif %}
+	</div>
+{% endblock %}
