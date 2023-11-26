@@ -1,0 +1,9 @@
+{% extends 'naloge/task_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>{{task.display_name}}</h3>
+		<p>Oglej si videoposnetek <a href="https://www.youtube.com/watch?v=cg6CTCRluyw"<b>Car oživlja</b></a></p>
+		<button onclick="window.location.href='{% url 'ktlist' %}';">Izberi naslednjo točko</button>
+	</div>
+{% endblock %}
