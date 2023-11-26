@@ -7,37 +7,30 @@
 		<img src="{% static 'img/logo.png' %}" class="logo">
 		<article>
 			<div>
-				<h3>Pozdravljeni!</h3>
-				<p>
-				Tukaj boste lahko našli navodila in naloge za dogodek Od srca do srca,
-				ki bo na voljo od prvega dne dogodka, nedelje,
-				26. 11. 2023, ter vse do petka, 29. 12. 2023.
-				Se že veselimo vašega obiska! </p>
-				<p>Do takrat nas lahko spremljate na instagramu
-				<a href="https://instagram.com/od.srca_do.srca">@od.srca_do.srca</a>.
-				Za kakršnakoli vprašanja smo vam na voljo preko e-pošte na
-				<a href="mailto:odsrcadosrca@rodsivegavolka.si">odsrcadosrca@rodsivegavolka.si</a>.
-				</p>
-				Lep pozdrav,<br>
-				organizacijska ekipa :)
+				<h2>Dobrodošli na spletni strani dogodka Od srca do srca</h2>
 			</div>
 		</article>
 		<article>
 			<h3> O dogodku </h3>
 			<div>
-				<p>Dogodek je namenjen vsem starostnim skupinam od 6. leta dalje in poteka v
+				<p>
+				Taborniki Rodu Sivega volka med <b>26. 11. in 29. 12. 2023</b>
+				vabimo na brezplačen vzgojno-izobraževalni dogodek <b>»Od srca do srca«</b>, ki udeležence popelje mimo AED postaj (avtomatskih
+				eksternih defibrilatorjev) v Ljubljani ter tekom sprehoda po
+				postajah širi <b>znanje prve pomoči</b>.
+				</p>
+				<p>
+				Dogodek je namenjen <b>vsem starostnim skupinam od 6. leta</b> dalje in poteka v
 				obliki fotoorientacije - preprostega orientacijskega pohoda s pomočjo
-				fotografij lokacij. Sprehod po vseh postajah traja približno 2 uri, lahko
-				opravite tudi le del poti.</p>
-
-				<p>Dogodek je nastal z željo, da bi razširili
-				zavedanje o prisotnosti in lokaciji AED postaj po Ljubljani, hkrati pa
-				udeležencem omogočili ponovitev in nadgraditev znanja prve pomoči na
-				zabaven način. Ker se zavedamo, da se po predznanju prve pomoči
-				razlikujemo, smo pripravili dve kategoriji težavnosti – lažja je prvotno
-				namenjena otrokom od 6. do 12. leta starosti, težja pa starejšim. Izberete
-				seveda tisto, ki vam glede na predznanje ustreza, preizkusite se lahko tudi
-				v obeh.</p>
+				fotografij lokacij. Sprehod po vseh postajah traja <b>približno 2 uri</b>, lahko
+				opravite tudi le del poti.
+				</p>
+				<p>
+				Za kakršnakoli vprašanja smo vam na voljo preko e-pošte na
+				<a href="mailto:odsrcadosrca@rodsivegavolka.si">odsrcadosrca@rodsivegavolka.si</a>,
+				spremljate pa nas lahko tudi na družabnem omrežju Instagram
+				<a href="https://instagram.com/od.srca_do.srca">@od.srca_do.srca</a>.
+				</p>
 			</div>
 		</article>
 		<article>
@@ -47,15 +40,23 @@
 				katerim boste dostopali do navodil, ki vas bodo vodila skozi
 				izkušnjo.</p>
 
-				<p>Povezave na QR kodah vas bodo vodile do fotografij lokacij, kjer se nahaja AED.
-				Ko lokacijo najdete, poiščite in skenirajte QR kodo, ki bo v bližini.
-				Prikazale se vam bodo teoretične osnove s posameznega področja prve pomoči,
-				ki jih lahko preberete. Temu sledi naloga za ponovitev znanja, ki ste ga
-				ravnokar pridobili/obnovili.</p>
+				<p>
+				V nadaljevanju si boste izbrali težavnostno kategorijo.
+				Glede na izbrano vam bodo prikazane
+				fotografije kontrolnih točk (lokacije, ki jih morate obiskati)
+				- vsaka lokacija se nahaja pri javno dostopnem AEDju. Ko
+				najdete lokacijo, poiščete in skenirajte QR kodo, ki se nahaja
+				pod AEDjem.</p>
 
-				<p>Pot po progi lahko začnete na katerikoli točki
-				(vrstni red ni pomemben) in jo lahko opravite tudi v več dneh; edina
-				časovna omejitev je trajanje dogodka.</p>
+				<p>
+				Prikazale se vam bodo teoretične osnove s posameznega področja
+				prve pomoči, ki jih lahko preberete. Temu sledi naloga za
+				ponovitev znanja, ki ste ga ravnokar pridobili/obnovili. Pot po
+				progi lahko začnete na katerikoli točki (vrstni red ni
+				pomemben) in jo lahko opravite tudi v več dneh; edina časovna
+				omejitev je trajanje dogodka. Težavnostno kategorijo lahko
+				kadarkoli zamenjate ter se preizkusite v obeh.
+				</p>
 				{% if is_started %}
 					<a role=button href="{% url "ktlist" %}">Seznam točk</a>
 					<a role=button href="{% url "group_selection" %}">Menjava skupine</a>

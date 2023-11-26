@@ -3,9 +3,16 @@
 {% block body %}
 	<div style="min-height: 60px"></div>
 	<main class="container">
-		<img src="{% static 'img/logo_small.png' %}" class="logo-small">
+		<a href="/"><img src="{% static 'img/logo_small.png' %}" class="logo-small"></a>
 		<article>
-			TODO text
+			<p>
+			Ker se zavedamo, da se po predznanju prve pomoči razlikujemo, smo
+			pripravili dve kategoriji težavnosti – lažja je prvotno namenjena
+			otrokom od 6. do 12. leta starosti, težja pa starejšim. Izberete
+			seveda tisto, ki vam glede na predznanje ustreza. Kategorijo lahko
+			vedno zamenjate in se preizkusite v obeh.
+			</p>
+
 			<button onclick="window.location.href='{% url 'nnz' %}';">Lažja skupina</button>
 			<button onclick="window.location.href='{% url 'obv' %}';">Težja skupina</button>
 		</article>

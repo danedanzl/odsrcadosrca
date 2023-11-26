@@ -7,7 +7,7 @@ sopts = ["", "6 - 11 let", "12 - 15 let", "16 - 21", "22 - 30", "31 - 45", "46 -
 sopts = list(zip(sopts, sopts))
 
 class Register(forms.Form):
-    email = forms.CharField(label="E-poštni naslov", max_length=200,
+    email = forms.CharField(label="Prosili bi vas, da nam zaupate svoj e-poštni naslov. Po zaključku dogodka vam želimo poslati kratko zahvalo, vprašalnik o zadovoljstvu ter nekaj dodatnih informacij.", max_length=200,
                             widget=forms.TextInput(), required=False) # TODO validator?
     group = forms.CharField(label="Boste reševali kot skupina? Če da, koliko vas je?", max_length=30,
                             widget=forms.Select(choices=gopts), required=False)

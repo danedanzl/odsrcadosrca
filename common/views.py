@@ -51,13 +51,11 @@ def group_selection(request):
 def pick_nnz(request):
     response = redirect("ktlist")
     response.set_cookie("group", "nnz")
-    response.set_cookie("done", "0"*11) # TODO move this to registration
     return response
 
 def pick_obv(request):
     response = redirect("ktlist")
     response.set_cookie("group", "obv")
-    response.set_cookie("done", "0"*11) # TODO move this to registration
     return response
 
 def cookie_reset(request):
@@ -115,4 +113,6 @@ def register(request):
                   form.cleaned_data['starost'])
         return redirect("ktlist") # TODO: handle invalid and set cookies
     form = forms.Register()
-    return render(request, "common/start.html", { 'form' : form })
+    response = render(request, "common/start.html", { 'form' : form })
+    response.set_cookie("done", "0"*11)
+    return response

@@ -5,11 +5,11 @@
 	<main class="container">
 		<a href="/"><img src="{% static 'img/logo_small.png' %}" class="logo-small"></a>
 		<article>
-			<p>Spodnja polja niso obvezna za udeležbo na akciji, a nam bodo
+			<p>
+			Spodnja polja niso obvezna za udeležbo na akciji, a nam bodo
 			pomagala pri vrednotenju uspešnosti akcije, zato bomo veseli, če
-			jih izpolnite. E-poštne naslove bomo uporabili, da vam po koncu
-			akcije pošljemo vprašalnik o zadovoljstvu, in za obveščanje o
-			morebitnih podobnih akcijah v prihodnosti.</p>
+			jih izpolnite.
+			</p>
 			<form method="post">
 				{% csrf_token %}
 				<p>{{form.email.label_tag}} {{form.email}}</p>
