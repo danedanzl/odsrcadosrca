@@ -11,11 +11,11 @@
 			var q = ["",
 "Sedite v lokalu in oseba sedeča nasproti vas pomotoma vdihne košček piškota ter začne kašljati.",
 "Nič vam ne odgovori in še naprej kašlja z zariplim obrazom.",
-"Naredite Heimlichov prijem. Oseba odreagira tako, da presenečeno poskoči na stolu, nato se vam po kratki pavzi začne smejati, saj ste se tako prestrašili. Vse je bilo v redu, in rahlo osramočeni nadaljujete pogovor.",
+"Naredite Heimlichov prijem. Oseba odreagira tako, da presenečeno poskoči na stolu, nato se vam po kratki pavzi začne smejati, saj ste se tako prestrašili. Vse je bilo v redu, in rahlo osramočeni nadaljujete pogovor.<br><br> Če želiš, se lahko skozi situacijo sprehodiš še enkrat.",
 "Ljudje se zgrnejo okoli nje in ne vedo, kako ji pomagati. Okoli nje je velika kričeča gruča in ničesar se ne da narediti.",
 "Še naprej kašlja.",
-"Iz gruče se prerine gospod, ki jo petkrat udari po hrbtu, petkrat naredi Heimlichov prijem in to ponavlja. Oseba končno zadiha in gruča se počasi razide.",
-"Osebi petkrat naredite Heimlichov prijem. Oseba končno zadiha in se vam zahvali. Gruča se počasi razide.",
+"Iz gruče se prerine gospod, ki jo petkrat udari po hrbtu, petkrat naredi Heimlichov prijem in to ponavlja. Oseba končno zadiha in gruča se počasi razide.<br><br> Če želiš, se lahko skozi situacijo sprehodiš še enkrat.",
+"Osebi petkrat naredite Heimlichov prijem. Oseba končno zadiha in se vam zahvali. Gruča se počasi razide. <br><br> Če želiš, se lahko skozi situacijo sprehodiš še enkrat.",
 ];
 
 var g= [[1], [2,3], [4,5],"end", [6,5], [7,6], "end", "end"];
@@ -36,6 +36,7 @@ var txt = [ [], ["Vprašate, ali je v redu.", "Skočite pokonci, greste okoli mi
 				$("lbl").innerHTML = q[state];
 				if (g[state] === "end") {
 					$("btn4").style.display = "block";
+					$("btn5").style.display = "block";
 					$("btn1").style.display = "none";
 					$("btn2").style.display = "none";
 					return;
@@ -52,11 +53,13 @@ var txt = [ [], ["Vprašate, ali je v redu.", "Skočite pokonci, greste okoli mi
 		<p id=lbl> </p>
 		<button id=btn1></button>
 		<button id=btn2></button>
-		<button id=btn4 class=contrast onclick="window.location.href='{% url 'ktlist' %}';">Izberi naslednjo točko</button>
+		<button id=btn4 class=contrast onclick="window.location.reload();">Poskusi ponovno</button>
+		<button id=btn5 style="width:50%;" onclick="window.location.href='{% url 'ktlist' %}';">Izberi naslednjo točko</button>
 		<script>
 			$("btn1").onclick = function(){click(0)};
 			$("btn2").onclick = function(){click(1)};
 			$("btn4").style.display = "none";
+			$("btn5").style.display = "none";
 			click(0);
 		</script>
 	 </div>

@@ -1,0 +1,23 @@
+{% extends 'naloge/infotext_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>Oživljanje</h3>
+		<p>Če najdeš osebo, ki se <b>ne odziva</b> in je ne moreš zbuditi, najprej zakliči “Na pomoč!”. Nato preveri, ali normalno diha. Če <b>ne diha normalno (ali sploh ne)</b>, bo potrebno oživljanje.</p>
+		<ol>
+			<li>Najprej pokliči 112.</li>
+			<li>
+			  <p>Osebo obrni na hrbet in začni izvajati stise prsnega koša (glej sliko/video spodaj).</p>
+			  <img src="{% static 'img/images/ozivljanje1.png' %}">
+			</li>
+			<li>
+			  <p>Po 30 stisih naredi 2 vpiha (glej sliko/video spodaj).</p>
+			  <img src="{% static 'img/images/ozivljanje2.png' %}">
+			</li>
+			<li>Izmenično izvajaj <b>30 stisov in 2 vpiha</b>, dokler ne pridejo reševalci. Če vpihov ne želiš izvajati, jih spusti in izvajaj samo stise.</li>
+		</ol>
+		<p>Če imaš v bližini AED (napravo, ki te vodi skozi postopek oživljanja), naj ti ga nekdo prinese. AED je za uporabo zelo enostaven: ko ga prižgeš, te <b>sam usmerja skozi postopek oživljanja</b>, tako da je tvoja edina naloga, da ubogaš njegova navodila. 
+</p>
+<!--<p><a href="https://www.youtube.com/watch?v=cg6CTCRluyw ">Video</a></p>-->
+	</div>
+{% endblock %}

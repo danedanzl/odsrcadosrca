@@ -130,8 +130,8 @@ def mk_obv_zastrupitve():
 
             vpr = MQ(nal=nal, vpr="Kateri od navedenih ukrepov ob zastrupitvi ni pravilen?")
             MA(vpr=vpr, ans="Spravimo na varno.", prav=False)
-            MA(vpr=vpr, ans="Primeru izgube zavesti ga položimo v položaj za nezavestnega.", prav=False)
-            MA(vpr=vpr, ans="Primeru, da je zastrupljeni pri zavesti, lahko po manjših požirkih pije navadno vodo, da razredči strup.", prav=True)
+            MA(vpr=vpr, ans="V primeru izgube zavesti ga položimo v položaj za nezavestnega.", prav=False)
+            MA(vpr=vpr, ans="V primeru, da je zastrupljeni pri zavesti, lahko po manjših požirkih pije navadno vodo, da razredči strup.", prav=True)
 
             vpr = MQ(nal=nal, vpr="Kateri od naštetih simptomov ni pogost simptom zastrupitve preko očesa?")
             MA(vpr=vpr, ans="Rdeče in razdražene oči.", prav=False)
@@ -139,12 +139,12 @@ def mk_obv_zastrupitve():
             MA(vpr=vpr, ans="Poškodbe oči in bolečina.", prav=False)
 
 def mk_obv_stanja():
-    if MchoiceTask.objects.filter(display_name="Stanja",
+    if MchoiceTask.objects.filter(display_name="Obolenja",
                                   name="stanja", max_points=0,
                                   category="obv").count() == 0:
         print(f"creating obv: Stanja")
         with transaction.atomic():
-            nal = MT(display_name="Stanja", name="stanja", max_points=0,
+            nal = MT(display_name="Obolenja", name="stanja", max_points=0,
                      category="obv")
 
             vpr = MQ(nal=nal, vpr="Kako pogosto lahko pri srčni kapi pod jezik poškropimo nitrolingual?")
