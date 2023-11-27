@@ -66,7 +66,7 @@ def cookie_reset(request):
 @validate_cookies
 def ktlist(request, group, done):
     if done is None:
-        return redirect("start")
+        return redirect("tegister")
     if group is None:
         return redirect("group_selection")
     ktji = []
