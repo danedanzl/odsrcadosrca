@@ -8,6 +8,7 @@ imagemagick command line orodja. Generiras z `./manage.py qr`. Output bo v mapi
 
 ## Setup & Install
 `./manage.py init`
+`./manage.py mchoice`
 
 ## Implementiranje nalog
 Nova naloga je sestavljena iz treh html komponent in enega forma na backendu.

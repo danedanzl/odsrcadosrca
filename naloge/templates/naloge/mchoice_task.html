@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block content %}
-	<h1>{{ task.display_name }}</h1>
+	<h3>{{ task.display_name }}</h3>
 	<p>Pri vsakem vprašanju ali trditvi označi pravi odgovor na vprašanje oz. ali trditev velja.</p>
 	<form action="{% url inv %}" method="post">
 		{% csrf_token %}
 		{{ form.as_div }}
-		<input type="submit" value="preveri" name="Preveri"/>
+		<input type="submit" value="Preveri rešitev" name="Preveri"/>
 	</form>
 {% endblock content %}

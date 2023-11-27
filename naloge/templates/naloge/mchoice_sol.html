@@ -3,18 +3,20 @@
 {% load dict_lookup %}
 
 {% block content %}
-	<h1>{{ task.display_name }}</h1>
+	<h3>{{ task.display_name }}</h3>
+	<ol>
 	{% for q in task.questions.all %}
+	<li>
 		<p>{{ q.vpr }}</p>
 		{% with tip=result|dict_lookup:q.id|dict_lookup:"tip" uradni=result|dict_lookup:q.id|dict_lookup:"uradni" %}
 			{% if q.kom != "" %}
 				<div class="odgbox">
 				{% if tip == 'tvojpravilni' %}
-					Res je, trditev je <span class="pravilno">{% if uradni == "Pravilna." %}pravilna{% else %}napačna{% endif %}</span>! <span>{{ q.kom }}</span>
+					Res je, trditev <span class="pravilno">{% if uradni == "Drži" %}drži{% else %}ne drži{% endif %}</span>! <span>{{ q.kom }}</span>
 				{% elif tip == 'uradnitvoj' %}
-					Ne, trditev je <span class="narobe">{% if uradni == "Pravilna." %}pravilna{% else %}napačna{% endif %}</span>! <span>{{ q.kom }}</span>
+					Ne, trditev <span class="narobe">{% if uradni == "Drži" %}drži{% else %}ne drži{% endif %}</span>! <span>{{ q.kom }}</span>
 				{% else %}
-					Trditev je <span class="poudarjeno">{% if uradni == "Pravilna." %}pravilna{% else %}napačna{% endif %}</span>! <span>{{ q.kom }}</span>
+					Trditev <span class="poudarjeno">{% if uradni == "Drži" %}drži{% else %}ne drži{% endif %}</span>! <span>{{ q.kom }}</span>
 				{% endif %}
 				</div>
 			{% elif tip == 'tvojpravilni' %}
@@ -36,5 +38,7 @@
 			<br/>
 			<br/>
 		{% endwith %}
+		</li>
 	{% endfor %}
+	</ol>
 {% endblock content %}
