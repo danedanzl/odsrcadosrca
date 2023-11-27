@@ -22,7 +22,7 @@ def mk_nnz_imobilizacija():
                                    "padel iz visoke lestve. Kaj moraš najprej "
                                    "narediti?")
             vpr2 = MQ(nal=nal, vpr="Ko je poskusil dvigniti pretežke uteži, se je "
-                                   "Lukatu kar naenkrat vdala desna roka in zdaj ne "
+                                   "Luki kar naenkrat vdala desna roka in zdaj ne "
                                    "more več premikati roke v komolcu. Na srečo so "
                                    "uteži padle mimo njega in ga niso dodatno "
                                    "poškodovale. Kaj narediš?")

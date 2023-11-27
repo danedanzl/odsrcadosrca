@@ -1,4 +1,4 @@
-{% extends 'naloge/sol_base.html' %}
+Očka {% extends 'naloge/sol_base.html' %}
 {% load static %}
 {% load dict_lookup %}
 
@@ -24,14 +24,14 @@
 					<span class="pravilno">{{ uradni }}</span>
 				</div>
 			{% elif tip == 'uradnitvoj' %}
-				<div class="odgbox"><span class="poudarjeno">Pravilni odgovor je:</span>
+				<div class="odgbox"><span class="poudarjeno">Pravilen odgovor je:</span>
 					<span class="uradno">{{ uradni }}</span>
 				</div>
 				<div class="odgbox"><span class="poudarjeno">Ti pa si odgovoril z:</span>
 					<span class="narobe">{{ result|dict_lookup:q.id|dict_lookup:"tvoj" }}</span>
 				</div>
 			{% else %}
-				<div class="odgbox"><span class="poudarjeno">Pravilni odgovor je:</span>
+				<div class="odgbox"><span class="poudarjeno">Pravilen odgovor je:</span>
 					<span class="uradno">{{ uradni }}</span>
 				</div>
 			{% endif %}
