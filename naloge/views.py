@@ -23,7 +23,7 @@ ktji = [
              "Vošnjakova ulica 2"),
         kt.KT(8893, 3616,
               (task.Task("obv_zapora", "Zapora dihalne poti", forms.TrivialForm),
-               task.Task("nnz_zadusitve", "Zadušitve")),
+               task.Task("nnz_zadusitve", "Zadušitve", forms.NNZZadusitve)),
              "Na nasprotni strani parka se nahaja vrhovno sodišče Republike Slovenije",
              "Dalmatinova ulica 4"),
         kt.KT(6415, 6859,

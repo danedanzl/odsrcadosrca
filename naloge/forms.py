@@ -257,3 +257,22 @@ class OBVMraz(forms.Form):
         cd = self.cleaned_data
         ret = { 'correct' : { f'posk{i+1}': kor_check(i, cd[f'posk{i+1}']) for i in range(4) }, }
         return ret
+
+zopts = list(enumerate(["", 'začnemo z oživljanjem.',
+                        'izvedemo 5 udarcev med lopatici.',
+                        'petkrat izvedemo Heimlichov manever.',
+                        'spodbujamo kašelj.',
+                        'izmenično ponavljamo 5 udarcev med lopatice in 5 Heimlichovih manevrov.']))
+
+
+class NNZZadusitve(forms.Form):
+    opts1 = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=zopts))
+    opts2 = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=zopts))
+    opts3 = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=zopts))
+    opts4 = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=zopts))
+    opts5 = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=zopts))
+
+    def correct(self):
+        l = [self.cleaned_data[f'opts{i}'] for i in range(1,6)]
+        print(l)
+        return { 'correct': l == ['4','2','3','5','1'] }

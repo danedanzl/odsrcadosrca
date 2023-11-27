@@ -1,0 +1,40 @@
+{% extends 'naloge/task_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>{{task.display_name}}</h3>
+		<p>Z ustreznimi ukrepi dopolnite trditve o ukrepanju pri zapori
+		dihalne poti: </p>
+		<form method="post">
+			{% csrf_token %}
+			<ul>
+				<li>
+					Dokler oseba kašlja,
+					<br>
+					{{ form.opts1 }}
+				</li>
+				<li>
+					Ko oseba ne kašlja več,
+					<br>
+					{{ form.opts2 }}
+				</li>
+				<li>
+					Če s tem ne razrešimo zapore,
+					<br>
+					{{ form.opts3 }}
+				</li>
+				<li>
+					Dokler je oseba pri zavesti,
+					<br>
+					{{ form.opts4 }}
+				</li>
+				<li>
+					Če oseba izgubi zavest,
+					<br>
+					{{ form.opts5 }}
+				</li>
+			</ul>
+			<input type="submit" value="Preveri rešitev">
+		</form>
+	</div>
+{% endblock %}

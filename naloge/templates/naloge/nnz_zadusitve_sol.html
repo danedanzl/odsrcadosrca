@@ -1,0 +1,13 @@
+{% extends 'naloge/sol_base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<h3>{{task.display_name}}</h3>
+		{% if correct %}
+		<p>Odgovor je pravilen!</p>
+		{% else %}
+		<p>Odgovor ni pravilen!</p>
+		{% include 'naloge/try_again.html' %}
+		{% endif %}
+	</div>
+{% endblock %}
