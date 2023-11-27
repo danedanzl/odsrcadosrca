@@ -3,7 +3,7 @@
 
 {% block content %}
 	<h3>{{ task.display_name }}</h3>
-	<p>Pri vsakem vprašanju ali trditvi označi pravi odgovor na vprašanje oz. ali trditev velja.</p>
+	<p class=poudarjeno>Pri vsakem vprašanju ali trditvi označi pravi odgovor na vprašanje oz. ali trditev velja.</p>
 	<form action="{% url inv %}" method="post">
 		{% csrf_token %}
 		{{ form.as_div }}

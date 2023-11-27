@@ -280,11 +280,11 @@ def mk_obv_tpo():
             MA(vpr=vpr, ans="Ne drži", prav=True)
 
 def mk_obv_splosno():
-    if MchoiceTask.objects.filter(display_name="Splošno - pristop, pregled, komunikacije",
+    if MchoiceTask.objects.filter(display_name="Pristop k nenadno prizadeti osebi",
                                   name="splosno", max_points=0, category="obv").count() == 0:
         print(f"creating obv: splosno")
         with transaction.atomic():
-            nal = MchoiceTask.objects.create(display_name="Splošno - pristop, pregled, komunikacije",
+            nal = MchoiceTask.objects.create(display_name="Pristop k nenadno prizadeti osebi",
                                              name="splosno", max_points=0, category="obv")
 
             vpr = MQ(nal=nal, vpr="Po pristopu k poškodovancu preverimo varnost okolice.", kom="Varnost preverimo PRED pristopom.")

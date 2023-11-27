@@ -5,13 +5,17 @@
 		<h3>{{task.display_name}}</h3>
 		<div class="odgbox">
 			<div>Simptomi značilni za anafilaktično reakcijo so:</div>
+			<ul>
 		{% for simpt in correct.simpt %}
 			{% if simpt.2 %}
+			<li>
 			<div class="poudarjeno">
-	q			<div class="{% if simpt.0 %}pravilno{% else %}narobe{% endif %}">{{ simpt.1 }},</div>
+				<div class="{% if simpt.0 %}pravilno{% else %}narobe{% endif %}">{{ simpt.1 }},</div>
 			</div>
+			</li>
 			{% endif %}
 		{% endfor %}
+			</ul>
 			<span class="{% if correct.simpt.1.0 %}pravilno{% else %}narobe{% endif %}">{{ correct.simpt.1.1 }}</span> in
 			<span class="{% if correct.simpt.3.0 %}pravilno{% else %}narobe{% endif %}">{{ correct.simpt.3.1 }}</span>
 			pa nista (simptome obarvane z zeleno ste označili pravilno, tiste z
@@ -21,5 +25,6 @@
 		{{ correct.korak1 }}
 		{{ correct.korak2 }}
 		{{ correct.korak3 }}
+		<br>
 	</div>
 {% endblock %}
