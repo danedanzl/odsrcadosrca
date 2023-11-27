@@ -18,7 +18,7 @@ def mk_nnz_imobilizacija():
                      name="imobilizacija", max_points=0, category="nnz")
 
 
-            vpr1 = MQ(nal=nal, vpr="Očka Peter je med obiranjem drevesa poleti "
+            vpr1 = MQ(nal=nal, vpr="Peter je med obiranjem drevesa poleti "
                                    "padel iz visoke lestve. Kaj moraš najprej "
                                    "narediti?")
             vpr2 = MQ(nal=nal, vpr="Ko je poskusil dvigniti pretežke uteži, se je "
