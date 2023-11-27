@@ -1,47 +1,55 @@
 body, html {
-	/* XXX: this should be a {% static %} block */
-	background-image: url("background.png");
-	height: 100%;
-	background-repeat: repeat;
+    /* XXX: this should be a {% static %} block */
+    background-image: url("background.png");
+    height: 100%;
+    background-repeat: repeat;
 }
 
 .logo {
-	max-height: 190px;
+    max-height: 190px;
 }
 
 .logo-small {
-	max-height: 80px;
-	 display: block;
+    max-height: 80px;
+     display: block;
      margin-left: auto;
 }
 
 .column {
-	flex: 50%;
-	padding: 0 4px 4px;
-	margin: 0 auto;
+    flex: 50%;
+    padding: 0 4px 4px;
+    margin: 0 auto;
 }
 
 .row {
-	display: flex;
-	padding: 0 4px 4px;
-	margin: 0 auto;
+    display: flex;
+    padding: 0 4px 4px;
+    margin: 0 auto;
 }
 
 
-/*	sol html */
+/*    sol html */
 
 .uradno, .odgbox {
-	padding-left: 10px;
+    padding-left: 10px;
 }
 
 .pravilno {
-	color: #0a0;
+    color: #0a0;
 }
 
 .narobe {
-	color: #f44;
+    color: #f44;
 }
 
 .poudarjeno {
-	text-decoration: underline;
+    text-decoration: underline;
+}
+
+#id_zgf1,#id_zgf2,#id_zgf3,#id_zgf4,#id_zgf5,#id_zgf6,#id_zgf7,#id_zgf8,#id_zgf9,#id_zgf10,#id_zgf11,#id_zgf12,#id_zgf13,#id_zgf14 {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-bottom: 0px;
+    padding-left: 5px;
+    padding-right: 2rem;
 }

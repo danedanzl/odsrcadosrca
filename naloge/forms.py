@@ -24,23 +24,23 @@ s = ["Sonce", "svetilo", "opekel zaradi trenja", "šoku", "hladno vodo", "15 min
 
 
 class NNZOpekline(forms.Form):
-    f1  = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
-    f2  = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
-    f3  = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
-    f4  = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
-    f5  = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
-    f6  = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
-    f7  = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
-    f8  = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
-    f9  = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
-    f10 = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
-    f11 = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
-    f12 = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
-    f13 = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
-    f14 = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
+    zgf1  = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
+    zgf2  = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
+    zgf3  = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
+    zgf4  = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
+    zgf5  = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
+    zgf6  = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
+    zgf7  = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
+    zgf8  = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
+    zgf9  = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
+    zgf10 = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
+    zgf11 = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
+    zgf12 = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
+    zgf13 = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
+    zgf14 = forms.CharField(initial="", max_length=30, widget=forms.Select(choices=list(zip(opts, opts))))
 
     def correct(self):
-        r = [self.cleaned_data[f"f{i}"] for i in range(1, len(s)+1)]
+        r = [self.cleaned_data[f"zgf{i}"] for i in range(1, len(s)+1)]
         assert len(r) == len(s)
         return { 'correct' : s == r,
                 'sol': ( {f"f{i}" : s[i-1] for i in range(1, len(s)+1)}

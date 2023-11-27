@@ -43,7 +43,7 @@ ktji = [
              "Kotnikova ulica 5"),
         kt.KT(5647, 9156,
               (task.Task("obv_opekline", "Opekline", forms.OBVOpekline),
-               task.Task("obv_opekline", "Opekline", forms.OBVOpekline)),
+               task.Task("nnz_opekline", "Opekline", forms.NNZOpekline)),
              "Na križišču, kjer stoji Sokolski dom",
              "Rozmanova ulica 12"),
         kt.KT(9384, 7966,
