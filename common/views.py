@@ -1,4 +1,5 @@
 from enum import Enum
+import datetime
 import functools
 
 from django.shortcuts import render, redirect
@@ -111,7 +112,13 @@ def img(request, group, done, imgid):
     else:
         raise Http404
 
-import datetime
+@validate_cookies
+def cheat(request, group, done, imgid):
+    for i,kt in enumerate(ktji):
+        if kt.imgid == imgid:
+            return redirect("kt", kt=kt.urlid)
+    else:
+        raise Http404
 
 def register(request):
     if request.method == 'POST':

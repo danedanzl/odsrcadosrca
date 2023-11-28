@@ -7,8 +7,8 @@ imagemagick command line orodja. Generiras z `./manage.py qr`. Output bo v mapi
 `qr`. Generiranje traja neki cajta (pol minute pr men).
 
 ## Setup & Install
-`./manage.py init`
-`./manage.py mchoice`
+* `./manage.py init`
+* `./manage.py mchoice`
 
 ## Implementiranje nalog
 Nova naloga je sestavljena iz treh html komponent in enega forma na backendu.
@@ -31,3 +31,7 @@ zmislt.
 Treba je vsem razen glavne strani popravit da bo logo\_small.png na vrhu
 Treba je poskrbet da bodo stvari mele taprav title.
 Treba je narest verzije slikic ki so oznacene kot ze obiskane.
+
+## Helperji za testiranje
+* `/reset pobrise cookieje`
+* ce spremenis /i/<imgid>` v `/cheat/<imgid>` te vrze na nalogo od tega ktja
