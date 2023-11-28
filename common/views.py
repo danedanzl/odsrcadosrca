@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.http import Http404
 from django.core.exceptions import SuspiciousOperation
 
-from naloge.views import task_map
+from naloge.views import ktji
 from naloge.task import Task
 
 from . import forms
@@ -69,19 +69,20 @@ def ktlist(request, group, done):
         return redirect("register")
     if group is None:
         return redirect("group_selection")
-    ktji = []
-    for i,kt in enumerate(sorted(list(task_map.values()))):
+    kts = []
+    for i,kt in enumerate(ktji):
         if group == Group.NNZ and kt.nnz is None:
             continue
-        ktji.append({
+        print(kt)
+        kts.append({
             'url' : reverse("img", kwargs={ 'imgid': kt.imgid }),
             'imgurl': f"img/nav/{kt.imgid}_small.jpg",
             'doneurl': f"img/nav/{kt.imgid}_done.jpg",
             'done': done[i], # TODO
         })
-    last = ktji[-1]
-    ktji = list(zip(ktji[::2], ktji[1::2]))
-    return render(request, "common/pick_kt.html", { 'kts' : ktji, 'last': last })
+    last = kts[-1]
+    kts = list(zip(kts[::2], kts[1::2]))
+    return render(request, "common/pick_kt.html", { 'kts' : kts, 'last': last })
 
 @validate_cookies
 def kt(request, group, done, kt):
@@ -90,7 +91,7 @@ def kt(request, group, done, kt):
     if group is None:
         return redirect("group_selection")
     curr = kt
-    for i,kt in enumerate(sorted(list(task_map.values()))):
+    for i,kt in enumerate(ktji):
         if kt.urlid == curr:
             done[i] = True
             if group == Group.OBV:
@@ -103,7 +104,7 @@ def kt(request, group, done, kt):
 
 @validate_cookies
 def img(request, group, done, imgid):
-    for i,kt in enumerate(list(sorted(task_map.values()))):
+    for i,kt in enumerate(ktji):
         if kt.imgid == imgid:
             url = f"img/nav/{kt.imgid}.jpg"
             return render(request, "common/kt_details.html", { 'kt': kt, 'imgurl': url, 'done': done[i] })

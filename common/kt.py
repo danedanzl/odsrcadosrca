@@ -13,3 +13,6 @@ class KT:
 
     def __lt__(self, other):
         return self.urlid < other.urlid
+
+    def __str__(self):
+        return str(self.__dict__)
