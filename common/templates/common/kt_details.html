@@ -7,16 +7,42 @@
 		<article>
 			<script> x=0; </script>
 			<div>
+				<p>
 				<div> <img src="{% static imgurl %}"></div>
+				</p>
 				<p>QR kode se nahajajo pod AEDji. Prosimo vas, da jih od tam ne
 				premikate. V primeru, da prispete na lokacijo in QR kode ne
 				najdete oziroma je ni, pa nas kontaktirajte preko e-pošte na <a
 				href="mailto:odsrcadosrca@rodsivegavolka.si">odsrcadosrca@rodsivegavolka.si</a></p>
-				{% if done %} <p> <b>To točko si že obiskal</b> </p> {% endif %}
 				<p id="tip"></p>
 				<p id="location"></p>
 			</div>
-			<button id=btn onclick="if (!x) { document.getElementById('tip').innerHTML = '<b>Namig: </b>{{kt.tip}}'; x=1; document.getElementById('btn').innerHTML = 'Nisem našel, pokaži lokacijo';} else {  document.getElementById('location').innerHTML = '<b>Lokacija: </b>{{kt.location}}';  document.getElementById('btn').style.display= 'none';}">Pokaži namig</button>
+			<button id=btn onclick="fn();">Pokaži namig</button>
+			<script>
+				function $(s) {
+					var el = document.getElementById(s);
+					return el;
+				};
+
+				var x=0;
+
+				function fn() {
+					if (!x) {
+						$('tip').innerHTML = '<b>Namig: </b>{{kt.tip}}';
+						$('btn').innerHTML = 'Nisem našel, pokaži lokacijo';
+						x=1;
+					} else {
+						$('tip').innerHTML = '<b>Namig: </b>{{kt.tip}}';
+						$('location').innerHTML = '<b>Lokacija: </b>{{kt.location}}';
+						$('btn').style.display= 'none';
+					}
+				}
+				{% if done %} x=1; fn() {% endif %}
+			</script>
+			{% if done %}
+				<p><b>To točko si že našel</b></p>
+				<button onclick="window.location.href='{% url 'kt' kt=kt.urlid %}';">Na nalogo</button>
+			{% endif %}
 		</article>
     </main>
 {% endblock %}
