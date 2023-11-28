@@ -117,7 +117,7 @@ def register(request):
         form = forms.Register(request.POST)
         if form.is_valid():
             with open("/home/bor/tvojamami", "a") as f:
-                print(datetime.datetime.now(), '|' form.cleaned_data['email'], '|',form.cleaned_data['group'], '|',
+                print(datetime.datetime.now(), '|', form.cleaned_data['email'], '|',form.cleaned_data['group'], '|',
                   form.cleaned_data['starost'], file=f)
         return redirect("ktlist") # TODO: handle invalid and set cookies
     form = forms.Register()
