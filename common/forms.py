@@ -3,7 +3,7 @@ from django import forms
 gopts = ["", "Rešujem sam"]+[str(i) for i in range(2,11)] + ["10 - 15", "Več kot 15"]
 gopts = list(zip(gopts, gopts))
 
-sopts = ["", "6 - 11 let", "12 - 15 let", "16 - 21", "22 - 30", "31 - 45", "46 - 65", "66 - ∞"]
+sopts = ["", "6 - 11 let", "12 - 15 let", "16 - 21", "22 - 30", "31 - 45", "46 65", "66 - ..."]
 sopts = list(zip(sopts, sopts))
 
 class Register(forms.Form):
