@@ -55,6 +55,8 @@ def pick_nnz(request):
 
 def pick_obv(request):
     response = redirect("ktlist")
+    if request.COOKIES.get("done") is None:
+        response.set_cookie("done", "0"*11)
     response.set_cookie("group", "obv")
     return response
 
@@ -88,7 +90,7 @@ def ktlist(request, group, done):
 @validate_cookies
 def kt(request, group, done, kt):
     if done is None:
-        return redirect("register")
+        return redirect("obv")
     if group is None:
         return redirect("group_selection")
     curr = kt
@@ -121,6 +123,7 @@ def cheat(request, group, done, imgid):
         raise Http404
 
 def register(request):
+    return redirect('obv')
     if request.method == 'POST':
         form = forms.Register(request.POST)
         if form.is_valid():
